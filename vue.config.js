@@ -3,7 +3,20 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                'components': '@/components'
+                'components': '@/components',
+                'style': '@/style',
+                'utils': '@/utils'
+            }
+        }
+    },
+    // 配置css的全局变量
+    css: {
+        loaderOptions: {
+            sass: {
+                additionalData: `
+                    @import '~style/variables.scss';
+                    @import '~style/mixin.scss';
+                `
             }
         }
     }

@@ -1,0 +1,12 @@
+@mixin flex-center($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin round($d) {
+    width: $d;
+    height: $d;
+    border-radius: 50%;
+}
