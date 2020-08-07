@@ -1,3 +1,4 @@
+import { Input, Carousel, CarouselItem, Table, Popover } from 'element-ui'
 import * as utils from './index'
 
 export default {
@@ -22,5 +23,10 @@ export default {
         Vue.prototype.$ELEMENT = { size: "small" }
         Vue.prototype.$utils = utils
         
+        Vue.use(Input)
+        Vue.use(Carousel)
+        Vue.use(CarouselItem)
+        Vue.use(Table)
+        Vue.use(Popover)
     }
 }

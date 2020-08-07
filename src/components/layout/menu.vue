@@ -1,0 +1,82 @@
+<template>
+  <div class="menu">
+    <div class="menu-wrap">
+      <div
+        class="menu-block"
+        v-for="(menu, index) in menusWithPlaylist"
+        :key="index"
+      >
+        <p class="menu-block-title" v-if="menu.title">{{ menu.title }}</p>
+        <ul class="menu-list">
+          <router-link
+            :key="index"
+            :to="item.path"
+            active-class="menu-item-active"
+            class="menu-item"
+            tag="li"
+            v-for="(item, index) in menu.children"
+          >
+            <Icon :size="16" :type="item.meta.icon" class="iconfont" />
+            <span class="menu-title">{{ item.meta.title }}</span>
+          </router-link>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { menuRoutes } from "router";
+
+export default {
+  data() {
+    return {
+      menus: [
+        {
+          type: "root",
+          children: menuRoutes,
+        },
+      ],
+    };
+  },
+  computed: {
+    // 登录歌单与默认歌单组合(todo)
+    menusWithPlaylist() {
+      return this.menus;
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.menu {
+    width: 250px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--menu-bgcolor);
+
+    .menu-wrap {
+        flex: 1;
+        overflow: hidden;
+        overflow-y: auto;
+
+        .menu-block {
+            margin-bottom: 16px;
+
+            .menu-block-title {
+                font-size: $font-size-sm;
+                color: var(--font-color-grey2);
+                padding-left: 16px;
+                margin-bottom: 8px;
+            }
+
+            .menu-list {
+                .menu-item {
+                    
+                }
+            }
+        }
+    }
+}
+</style>

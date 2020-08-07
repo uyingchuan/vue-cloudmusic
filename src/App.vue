@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <Header />
+    <Layout />
   </div>
 </template>
 
 <script>
-import Header from 'components/layout/header'
+import Layout from 'components/layout'
 
 export default {
   components: {
-    Header
+    Layout
   }
 }
 </script>

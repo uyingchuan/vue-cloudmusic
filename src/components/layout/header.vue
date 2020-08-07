@@ -16,12 +16,19 @@
     </div>
     <div class="rigth">
       <div class="search-wrap"></div>
+      <Theme />
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import Theme from 'components/theme'
+
+export default {
+  components: {
+    Theme
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -29,18 +36,27 @@ export default {};
   display: flex;
   justify-content: space-between;
   height: $header-height;
-  // background-color: var(--header-bgcolor);
+  background-color: var(--header-bgcolor);
   background-color: #fff;
   padding-right: 36px;
 
-  // @include
+  // @include el-input-theme(
+  //   var(--header-input-color),
+  //   var(--header-input-bgcolor),
+  //   var(--header-input-placeholder-color)
+  // );
+
+  // 深度作用选择器，使样式影响子组件
+  /deep/ .iconfont {
+    color: var(--header-font-color);
+  }
 
   .left {
     padding: 14px 14px 0 8px;
     display: flex;
 
     // .font-weight {
-
+    //   white-space: nowrap;
     // }
 
     .buttons {
@@ -72,10 +88,12 @@ export default {};
 
         i {
           opacity: 0;
-          transform: opacity 0.3s;
+          transition: opacity 0.3s;
           color: $black;
           font-weight: $font-weight-blod;
           transform-origin: center center;
+          font-size: 9px;
+          transform: scale(0.75);
         }
       }
     }

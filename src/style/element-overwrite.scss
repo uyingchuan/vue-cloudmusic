@@ -1,0 +1,13 @@
+// popover组件
+@each $direction in "bottom" "top" "left" "right" {
+  .el-popper[x-placement^="#{$direction}"] .popper__arrow,
+  .el-popper[x-placement^="#{$direction}"] .popper__arrow::after {
+    border-#{$direction}-color: var(--prompt-bg-color) !important;
+  }
+}
+.el-popover {
+  background: var(--prompt-bg-color) !important;
+  border: none !important;
+  text-align: left;
+  @include box-shadow;
+}
