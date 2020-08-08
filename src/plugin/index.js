@@ -1,5 +1,5 @@
 import { Input, Carousel, CarouselItem, Table, Popover } from 'element-ui'
-import * as utils from './index'
+import * as utils from 'utils'
 
 export default {
     install(Vue) {

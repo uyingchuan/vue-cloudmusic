@@ -4,6 +4,9 @@ import VueRouter from 'vue-router'
 // const 路由加载区
 import Discovery from 'components/layout/discovery'
 
+// 应用内容区展示的页面
+export const layoutCenterNames = ['discovery']
+
 // 需要显示在侧边栏菜单的页面
 export const menuRoutes = [
   {

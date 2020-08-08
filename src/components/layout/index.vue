@@ -15,6 +15,7 @@
 <script>
 import LayoutHeader from "./header";
 import LayoutMenu from "./menu";
+import { layoutCenterNames } from "router"
 
 export default {
   data() {
@@ -27,7 +28,11 @@ export default {
     LayoutMenu,
   },
   computed: {
-    routerViewCls() {},
+    routerViewCls() {
+      return layoutCenterNames.find(name => name === this.$route.name)
+        ? "router-view-center"
+        : ""
+    },
   }
 };
 </script>
@@ -38,9 +43,22 @@ export default {
 
     .layout-body {
       height: 100%;
+      display: flex;
 
       .layout-menu {
         height: 100%;
+      }
+
+      .content {
+        flex: 1;
+        overflow-y: auto;
+        min-width: $layout-content-min-width;
+        margin-bottom: $mini-player-height;
+
+        .router-view-center {
+          max-width: $center-content-max-width;
+          margin: auto;
+        }
       }
     }
 }
