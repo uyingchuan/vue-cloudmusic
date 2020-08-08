@@ -6,8 +6,7 @@ module.exports = {
                 'components': '@/components',
                 'style': '@/style',
                 'utils': '@/utils',
-                'view': '@/view',
-                'router': '@/router'
+                'router': '@/router',
             }
         }
     },

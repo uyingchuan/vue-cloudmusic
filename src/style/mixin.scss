@@ -14,3 +14,9 @@
 @mixin box-shadow {
     box-shadow: 0 2px 8px 0 rgba($color: #000, $alpha: 0.2);
 }
+
+@mixin text-ellipsis() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

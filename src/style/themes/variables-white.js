@@ -1,13 +1,18 @@
 export default {
     ['--round-hover-bgcolor']: '#EBEBEB',
 
+    ['--font-color-grey-shallow']: '#bebebe',
+
     ['--header-bgcolor']: '#f9f9f9',
     ['--header-font-color']: '#4a4a4a',
 
     // menu
-    ['--menu-bg-color']: '#ededed',
+    ['--menu-bgcolor']: '#ededed',
     ['--menu-item-hover-bg']: '#e7e7e7',
-    ['--menu-item-active-bg']: '#e2e2e2',
+    ['--menu-item-active-bgcolor']: '#e2e2e2',
+    // input 
+    ['--input-color']: '#4a4a4a',
+    ['--input-bgcolor']: '#ededed',
     // 提示 prompt
     ['--prompt-bg-color']: '#fff',
 }

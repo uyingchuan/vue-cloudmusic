@@ -1,5 +1,4 @@
 <template>
-  <!-- 全局通用组件 Icon -->
   <div class="header">
     <div class="left">
       <div class="buttons">
@@ -13,9 +12,14 @@
           <Icon :size="9" type="fullscreen" />
         </div>
       </div>
+      <div class="history" v-show="!isPlayerShow">
+        <RoutesHistory />
+      </div>
     </div>
     <div class="rigth">
-      <div class="search-wrap"></div>
+      <div class="search-wrap">
+        <Search />
+      </div>
       <Theme />
     </div>
   </div>
@@ -23,10 +27,17 @@
 
 <script>
 import Theme from 'components/theme'
+import Search from 'components/search'
+import RoutesHistory from 'components/routes-history'
 
 export default {
+  data() {
+    return {
+      isPlayerShow: false
+    }
+  },
   components: {
-    Theme
+    Theme, Search, RoutesHistory
   }
 };
 </script>
@@ -37,7 +48,6 @@ export default {
   justify-content: space-between;
   height: $header-height;
   background-color: var(--header-bgcolor);
-  background-color: #fff;
   padding-right: 36px;
 
   // @include el-input-theme(
@@ -49,6 +59,7 @@ export default {
   // 深度作用选择器，使样式影响子组件
   /deep/ .iconfont {
     color: var(--header-font-color);
+    font-size: 16px;
   }
 
   .left {
@@ -96,6 +107,10 @@ export default {
           transform: scale(0.75);
         }
       }
+    }
+
+    .history {
+      margin-left: 65px;
     }
   }
 

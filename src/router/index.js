@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 // const 路由加载区
-import Discovery from 'view/discovery'
+import Discovery from 'components/layout/discovery'
 
 // 需要显示在侧边栏菜单的页面
 export const menuRoutes = [
@@ -22,6 +22,24 @@ export const menuRoutes = [
     meta: {
       title: '推荐歌单',
       icon: 'playlist-menu'
+    }
+  },
+  {
+    path: '/music',
+    name: '',
+    component: Discovery,
+    meta: {
+      title: '最新音乐',
+      icon: 'yinyue'
+    }
+  },
+  {
+    path: '/mv',
+    name: '',
+    component: Discovery,
+    meta: {
+      title: '最新MV',
+      icon: 'mv'
     }
   }
 ]

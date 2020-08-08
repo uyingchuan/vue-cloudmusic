@@ -1,5 +1,6 @@
 <template>
   <div class="menu">
+    <User />
     <div class="menu-wrap">
       <div
         class="menu-block"
@@ -27,6 +28,7 @@
 
 <script>
 import { menuRoutes } from "router";
+import User from "components/user"
 
 export default {
   data() {
@@ -45,6 +47,9 @@ export default {
       return this.menus;
     },
   },
+  components: {
+    User
+  }
 };
 </script>
 
@@ -73,7 +78,31 @@ export default {
 
             .menu-list {
                 .menu-item {
-                    
+                    @include text-ellipsis;
+                    padding: 12px 18px;
+                    cursor: pointer;
+
+                    &:hover {
+                      background: var(--menu-item-hover-bg);
+                    }
+
+                    &-active {
+                      color: $theme-color;
+                      background: var(--menu-item-active-bgcolor);
+
+                      // i {
+                      //   color: $theme-color;
+                      // }
+                    }
+
+                    /deep/.iconfont {
+                      font-size: $font-size-medium-sm + 3px;
+                    }
+
+                    .menu-title {
+                      font-size: $font-size-medium-sm;
+                      margin-left: 8px;
+                    }
                 }
             }
         }

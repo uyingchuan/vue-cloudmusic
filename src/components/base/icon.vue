@@ -49,6 +49,7 @@ export default {
       <i
         onclick={this.onclick}
         class={`iconfont icon-component ${this.getIconCls()}`}
+        style={this.getIconStyle()}
       />
     );
     if (this.backdrop) {
