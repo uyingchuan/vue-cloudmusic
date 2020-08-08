@@ -3,6 +3,7 @@
     <div class="discovery-content">
       <Banner />
       <Recommend />
+      <NewSongs />
     </div>
   </div>
 </template>
@@ -10,10 +11,11 @@
 <script>
 import Banner from "./banner";
 import Recommend from "./recommend"
+import NewSongs from "./new-songs"
 
 export default {
   components: {
-    Banner, Recommend
+    Banner, Recommend, NewSongs
   },
 };
 </script>
