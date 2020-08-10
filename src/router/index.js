@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 import Discovery from 'components/layout/discovery'
 
 // 应用内容区展示的页面
-export const layoutCenterNames = ['discovery']
+export const layoutCenterNames = ['discovery', 'playlists', 'songs', 'mvs']
 
 // 需要显示在侧边栏菜单的页面
 export const menuRoutes = [
@@ -28,8 +28,8 @@ export const menuRoutes = [
     }
   },
   {
-    path: '/music',
-    name: '',
+    path: '/songs',
+    name: 'songs',
     component: Discovery,
     meta: {
       title: '最新音乐',
@@ -37,8 +37,8 @@ export const menuRoutes = [
     }
   },
   {
-    path: '/mv',
-    name: '',
+    path: '/mvs',
+    name: 'mvs',
     component: Discovery,
     meta: {
       title: '最新MV',
@@ -50,6 +50,10 @@ export const menuRoutes = [
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/',
+    redirect: '/discovery'
+  },
   ...menuRoutes
 ]
 

@@ -4,6 +4,7 @@
       <Banner />
       <Recommend />
       <NewSongs />
+      <NewMvs />
     </div>
   </div>
 </template>
@@ -12,10 +13,11 @@
 import Banner from "./banner";
 import Recommend from "./recommend"
 import NewSongs from "./new-songs"
+import NewMvs from "./new-mvs"
 
 export default {
   components: {
-    Banner, Recommend, NewSongs
+    Banner, Recommend, NewSongs, NewMvs
   },
 };
 </script>
