@@ -2,6 +2,7 @@ export default {
     ['--round-hover-bgcolor']: '#EBEBEB',
 
     ['--font-color-grey-shallow']: '#bebebe',
+    ['--font-color']: '#4a4a4a',
 
     ['--header-bgcolor']: '#f9f9f9',
     ['--header-font-color']: '#4a4a4a',

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 // const 路由加载区
-import Discovery from 'components/layout/discovery'
+import Discovery from '@/page/discovery'
 
 // 应用内容区展示的页面
 export const layoutCenterNames = ['discovery', 'playlists', 'songs', 'mvs']

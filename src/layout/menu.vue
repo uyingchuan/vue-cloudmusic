@@ -28,7 +28,7 @@
 
 <script>
 import { menuRoutes } from "router";
-import User from "components/user"
+import User from "@/components/user"
 
 export default {
   data() {
@@ -60,6 +60,7 @@ export default {
     display: flex;
     flex-direction: column;
     background-color: var(--menu-bgcolor);
+    color: var(--font-color);
 
     .menu-wrap {
         flex: 1;
@@ -83,7 +84,7 @@ export default {
                     cursor: pointer;
 
                     &:hover {
-                      background: var(--menu-item-hover-bg);
+                      background: var(--menu-item-hover-bgcolor);
                     }
 
                     &-active {

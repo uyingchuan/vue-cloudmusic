@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import Theme from 'components/theme'
-import Search from 'components/search'
-import RoutesHistory from 'components/routes-history'
+import Theme from '@/components/theme'
+import Search from '@/components/search'
+import RoutesHistory from '@/components/routes-history'
 
 export default {
   data() {

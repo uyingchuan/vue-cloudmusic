@@ -19,9 +19,9 @@
 
 <script>
 import storage from "good-storage";
-import variables from "style/themes/variables";
-import variablesWhite from "style/themes/variables-white";
-import variablesRed from "style/themes/variables-red";
+import variables from "@/style/themes/variables";
+import variablesWhite from "@/style/themes/variables-white";
+import variablesRed from "@/style/themes/variables-red";
 
 const THEME_KEY = "__theme__";
 const themes = {

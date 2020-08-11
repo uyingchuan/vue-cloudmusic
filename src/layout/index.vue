@@ -15,7 +15,7 @@
 <script>
 import LayoutHeader from "./header";
 import LayoutMenu from "./menu";
-import { layoutCenterNames } from "router"
+import { layoutCenterNames } from "@/router"
 
 export default {
   data() {

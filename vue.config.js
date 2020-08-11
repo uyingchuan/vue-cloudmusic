@@ -3,10 +3,12 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                'components': '@/components',
-                'style': '@/style',
-                'utils': '@/utils',
-                'router': '@/router',
+                // 'components': '@/components',
+                // 'style': '@/style',
+                // 'utils': '@/utils',
+                // 'router': '@/router',
+                // 'page': '@/page',
+                // 'layout': '@/layout'
             }
         }
     },
@@ -15,8 +17,8 @@ module.exports = {
         loaderOptions: {
             sass: {
                 additionalData: `
-                    @import '~style/variables.scss';
-                    @import '~style/mixin.scss';
+                    @import '~@/style/variables.scss';
+                    @import '~@/style/mixin.scss';
                 `
             }
         }
