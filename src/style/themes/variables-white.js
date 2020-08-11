@@ -1,4 +1,5 @@
 export default {
+    ['--body-bgcolor']: '#fff',
     ['--round-hover-bgcolor']: '#EBEBEB',
 
     ['--font-color-grey-shallow']: '#bebebe',
