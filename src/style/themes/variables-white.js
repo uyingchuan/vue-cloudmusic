@@ -1,5 +1,6 @@
 export default {
     ['--body-bgcolor']: '#fff',
+
     ['--round-hover-bgcolor']: '#EBEBEB',
 
     ['--font-color-grey-shallow']: '#bebebe',
@@ -17,4 +18,9 @@ export default {
     ['--input-bgcolor']: '#ededed',
     // 提示 prompt
     ['--prompt-bg-color']: '#fff',
+
+    // tab
+    ['--tab-item-color']: '#7f7f81',
+    ['--tab-item-hover-color']: '#343434',
+    ['--tab-item-active-color']: '#000',
 }

@@ -4,8 +4,8 @@ import router from './router'
 import store from './store'
 
 import global from './plugin'
-import 'style/index.scss'
-import 'utils/rem.js'
+import '@/style/index.scss'
+import '@/utils/rem.js'
 
 Vue.config.productionTip = false
 Vue.use(global)

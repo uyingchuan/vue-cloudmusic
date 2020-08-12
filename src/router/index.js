@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 
 // const 路由加载区
 import Discovery from '@/page/discovery'
+import Playlists from '@/page/playlists'
+import PlaylistDetail from '@/page/playlist-detail'
 
 // 应用内容区展示的页面
 export const layoutCenterNames = ['discovery', 'playlists', 'songs', 'mvs']
@@ -21,7 +23,7 @@ export const menuRoutes = [
   {
     path: '/playlists',
     name: 'playlists',
-    component: Discovery,
+    component: Playlists,
     meta: {
       title: '推荐歌单',
       icon: 'playlist-menu'
@@ -53,6 +55,11 @@ const routes = [
   {
     path: '/',
     redirect: '/discovery'
+  },
+  {
+    path: '/playlist/:id',
+    name: 'playlist',
+    component: PlaylistDetail
   },
   ...menuRoutes
 ]

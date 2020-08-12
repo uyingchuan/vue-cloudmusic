@@ -17,6 +17,9 @@ export function pad(num, n = 2) {
     return num
 }
 
+// 格式化日期
+export function formatDate() {}
+
 // 格式化数字
 export function formatNumber(number) {
     number = Number(number) || 0
@@ -29,4 +32,8 @@ export function formatTime(interval) {
     const minute = pad((interval / 60) | 0)
     const second = pad(interval % 60)
     return `${minute}:${second}`
+}
+
+export function getPageOffset(page, limit) {
+    return (page - 1) * limit
 }

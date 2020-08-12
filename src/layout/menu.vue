@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { menuRoutes } from "router";
+import { menuRoutes } from "@/router";
 import User from "@/components/user"
 
 export default {

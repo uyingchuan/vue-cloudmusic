@@ -17,7 +17,7 @@
 
 <script>
 import { getPersonalizedMv } from "@/api";
-import MvCard from "components/mv-card";
+import MvCard from "@/components/mv-card";
 
 export default ({
   created() {

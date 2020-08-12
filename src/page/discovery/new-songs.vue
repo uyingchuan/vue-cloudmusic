@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import { createSong } from "utils";
+import { createSong } from "@/utils";
 import { getNewSongs } from "@/api";
-import SongCard from "components/song-card"
+import SongCard from "@/components/song-card"
 
 const songsLimit = 10
 export default {

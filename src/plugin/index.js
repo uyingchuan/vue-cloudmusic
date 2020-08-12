@@ -1,13 +1,14 @@
-import { Input, Carousel, CarouselItem, Table, Popover } from 'element-ui'
+import { Input, Carousel, CarouselItem, Table, Popover, Pagination } from 'element-ui'
 import * as utils from '@/utils'
 import VueLazyload from 'vue-lazyload'
+import Meta from 'vue-meta'
 
 const EMPTY_IMG = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 
 export default {
     install(Vue) {
         const requireComponent = require.context(
-            "components/base", // 引入组件的根目录
+            "@/components/base", // 引入组件的根目录
             true, //是否需要查找下级目录
             /[a-z0-9]+\.(jsx?|vue)$/i
         )
@@ -31,6 +32,9 @@ export default {
         Vue.use(CarouselItem)
         Vue.use(Table)
         Vue.use(Popover)
+        Vue.use(Pagination)
+
+        Vue.use(Meta)
 
         Vue.use(VueLazyload, {
             loading: EMPTY_IMG,

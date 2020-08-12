@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import PlaylistCard from "components/playlist-card";
+import PlaylistCard from "@/components/playlist-card";
 import { getPersonalized } from "@/api";
 
 export default {

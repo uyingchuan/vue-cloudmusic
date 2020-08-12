@@ -101,7 +101,7 @@ export default {
           opacity: 0;
           transition: opacity 0.3s;
           color: $black;
-          font-weight: $font-weight-blod;
+          font-weight: $font-weight-bold;
           transform-origin: center center;
           font-size: 9px;
           transform: scale(0.75);
