@@ -1,3 +1,4 @@
+// 推荐歌单组件
 <template>
   <div class="recommend">
     <Title>推荐歌单</Title>
