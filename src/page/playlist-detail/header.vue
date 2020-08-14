@@ -1,7 +1,7 @@
 <template>
-  <div class="header">
+  <div class="header" v-if="playlist.id">
     <div class="img-wrap">
-      <img :src="$utils.getImgRul(playlist.coverImgUrl, 400)" />
+      <img :src="$utils.getImgUrl(playlist.coverImgUrl, 400)" />
     </div>
     <div class="content">
       <div class="title-wrap">
@@ -57,77 +57,80 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+  display: flex;
+  padding: 36px;
+
+  .img-wrap {
+    width: 200px;
+    height: 200px;
+    margin-right: 24px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .content {
     display: flex;
-    padding: 36px;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
 
-    .img-wrap {
-        width: 200px;
-        height: 200px;
-        margin-right: 24px;
+    .title-wrap {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
 
-        img {
-            width: 100%;
-            height: 100%;
-        }
+      .title {
+        font-size: $font-size-lg;
+        color: var(--font-color-white);
+      }
     }
 
-    .content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        flex: 1;
+    .action-wrap {
+      margin-bottom: 18px;
 
-        .title-wrap {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
+      .button {
+        background: #f95043;
+        background: linear-gradient(to right, #fa5143, #f44d41, #d53b32);
+        color: #fbdfdd;
+        border: none;
 
-            .title {
-                font-size: $font-size-lg;
-                color: var(--font-color-white);
-            }
+        .icon {
+          margin-right: 4px;
         }
 
-        .action-wrap {
-            margin-bottom: 18px;
-
-            .button {
-                background: #f95043;
-                background: linear-gradient(to right, #fa5143, #f44d41, #d53b32);
-                color: #fbdfdd;
-                border: none;
-
-                .icon {
-                    margin-right: 4px;
-                }
-
-                .middle {
-                    vertical-align: middle;
-                }
-            }
+        .middle {
+          vertical-align: middle;
         }
-        
-        .creator-wrap {
-            display: flex;
-            align-items: center;
-            margin-bottom: 18px;
-
-            .avatar {
-                margin-right: 8px;
-            }
-
-            .create-time {
-                font-size: $font-size-sm;
-            }
-        }
-
-        .desc {
-            margin-bottom: 8px;
-
-            .value {
-                @include text-ellipsis-multi(3);
-            }
-        }
+      }
     }
+
+    .creator-wrap {
+      display: flex;
+      align-items: center;
+      margin-bottom: 18px;
+
+      .avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+
+      .create-time {
+        font-size: $font-size-sm;
+      }
+    }
+
+    .desc {
+      margin-bottom: 8px;
+
+      .value {
+        @include text-ellipsis-multi(3);
+      }
+    }
+  }
 }
 </style>

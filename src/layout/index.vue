@@ -15,13 +15,13 @@
 <script>
 import LayoutHeader from "./header";
 import LayoutMenu from "./menu";
-import { layoutCenterNames } from "@/router"
+import { layoutCenterNames } from "@/router";
 
 export default {
   data() {
     return {
       isMenuShow: true,
-    }
+    };
   },
   components: {
     LayoutHeader,
@@ -29,37 +29,37 @@ export default {
   },
   computed: {
     routerViewCls() {
-      return layoutCenterNames.find(name => name === this.$route.name)
+      return layoutCenterNames.find((name) => name === this.$route.name)
         ? "router-view-center"
-        : ""
+        : "";
     },
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .layout {
-    height: 100%;
+  height: 100%;
 
-    .layout-body {
-      height: 100%;
-      display: flex;
+  .layout-body {
+    height: calc(100% - #{$header-height});
+    display: flex;
 
-      .layout-menu {
-        height: 100%;
-      }
+    .layout-menu {
+      height: calc(100% - #{$mini-player-height});
+    }
 
-      .content {
-        flex: 1;
-        overflow-y: auto;
-        min-width: $layout-content-min-width;
-        margin-bottom: $mini-player-height;
+    .content {
+      flex: 1;
+      overflow-y: auto;
+      min-width: $layout-content-min-width;
+      margin-bottom: $mini-player-height;
 
-        .router-view-center {
-          max-width: $center-content-max-width;
-          margin: auto;
-        }
+      .router-view-center {
+        max-width: $center-content-max-width;
+        margin: auto;
       }
     }
+  }
 }
 </style>

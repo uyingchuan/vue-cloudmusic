@@ -1,5 +1,5 @@
 import state from './state'
-import getter from './getter'
+import getters from './getter'
 import mutations from './mutations'
 import actions from './actions'
 
