@@ -20,4 +20,19 @@ export default {
   setPlayHistory(state, history) {
     state.playHistory = history;
   },
+  setPlayerShow(state, show) {
+    state.isPlayShow = show
+  },
+  setPlaylistShow(state, show) {
+    state.isPlaylistShow = show
+  },
+  setPlaylistPromptShow(state, show) {
+    state.isPlaylistPromptShow = show
+  },
+  setPlayMode(state, mode) {
+    state.playMode = mode
+  },
+  setCurrentTime(state, time) {
+    state.currentTime = time
+  }
 };
