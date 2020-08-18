@@ -1,6 +1,9 @@
+// 页面头部组件
 <template>
   <div class="header">
+    <!-- 左侧mac端按钮与history按钮 -->
     <div class="left">
+      <!-- mac端三按钮 -->
       <div class="buttons">
         <div class="mac-button red">
           <Icon :size="9" type="home" />
@@ -12,10 +15,12 @@
           <Icon :size="9" type="fullscreen" />
         </div>
       </div>
+      <!-- history按钮 -->
       <div class="history" v-show="!isPlayerShow">
         <RoutesHistory />
       </div>
     </div>
+    <!-- 右侧搜索栏与换肤按钮 -->
     <div class="rigth">
       <div class="search-wrap">
         <Search />
@@ -37,9 +42,11 @@ export default {
     }
   },
   components: {
-    Theme, Search, RoutesHistory
+    Theme,
+    Search,
+    RoutesHistory
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

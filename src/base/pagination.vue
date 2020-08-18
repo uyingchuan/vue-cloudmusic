@@ -1,3 +1,4 @@
+// 分页组件
 <template>
   <div class="pagination" v-if="total > pageSize">
     <el-pagination
@@ -12,9 +13,9 @@
 
 <script>
 export default {
-  props: ["pageSize", "total"],
-  name: "Pagination",
-};
+  props: ['pageSize', 'total'],
+  name: 'Pagination'
+}
 </script>
 
 <style lang="scss" scoped>

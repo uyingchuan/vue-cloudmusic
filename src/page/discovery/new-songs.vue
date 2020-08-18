@@ -1,12 +1,9 @@
+// 最新音乐组件
 <template>
   <div v-if="list.length" class="new-songs">
     <Title>最新音乐</Title>
     <div class="list-wrap">
-      <div
-        class="list"
-        :key="listIndex"
-        v-for="(list, listIndex) in thunkedList"
-      >
+      <div class="list" :key="listIndex" v-for="(list, listIndex) in thunkedList">
         <songCard
           :key="item.id"
           :order="getSongOrder(listIndex, index)"
@@ -20,21 +17,21 @@
 </template>
 
 <script>
-import { createSong } from "@/utils";
-import { getNewSongs } from "@/api";
-import SongCard from "@/components/song-card"
+import { createSong } from '@/utils'
+import { getNewSongs } from '@/api'
+import SongCard from '@/components/song-card'
 
 const songsLimit = 10
 export default {
   async created() {
-    const { result } = await getNewSongs();
-    this.list = result;
+    const { result } = await getNewSongs()
+    this.list = result
   },
   data() {
     return {
       list: [],
-      chunkLimit: Math.ceil(songsLimit / 2),
-    };
+      chunkLimit: Math.ceil(songsLimit / 2)
+    }
   },
   methods: {
     getSongOrder(listIndex, index) {
@@ -59,26 +56,26 @@ export default {
         duration,
         mvId: mvid
       })
-    },
+    }
   },
   computed: {
     thunkedList() {
       return [
         this.list.slice(0, this.chunkLimit),
-        this.list.slice(this.chunkLimit, this.list.length),
-      ];
-    },
+        this.list.slice(this.chunkLimit, this.list.length)
+      ]
+    }
   },
   components: {
     SongCard
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
 .new-songs {
   margin-bottom: 36px;
-  
+
   .list-wrap {
     display: flex;
 

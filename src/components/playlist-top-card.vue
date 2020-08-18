@@ -1,3 +1,4 @@
+// 推荐歌单
 <template>
   <div class="wrap">
     <div class="playlist-top-card">
@@ -23,13 +24,13 @@
 
 <script>
 export default {
-  props: ["id", "img", "name", "desc"],
+  props: ['id', 'img', 'name', 'desc'],
   methods: {
     onClickCard() {
-      this.$router.push(`/playlist/${this.id}`);
-    },
-  },
-};
+      this.$router.push(`/playlist/${this.id}`)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -80,9 +81,15 @@ export default {
     }
   }
 
-  .background {
+  .background-mask {
     @include abs-stretch;
     background: rgba($color: #000000, $alpha: 0.5);
+    z-index: 0;
+  }
+
+  .background {
+    @include abs-stretch;
+    filter: blur(16px);
     z-index: 0;
   }
 }

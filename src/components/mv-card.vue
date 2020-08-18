@@ -1,14 +1,18 @@
+// mv卡片组件
 <template>
-  <div class="mv-card" @click="goMv">
+  <div class="mv-card">
     <div class="img-wrap">
       <img v-lazy="$utils.getImgUrl(img, 500, 260)" />
+      <!-- 播放次数 -->
       <div class="play-count-wrap" v-if="playCount">
         <Icon type="play" />
         {{ $utils.formatNumber(playCount) }}
       </div>
+      <!-- 播放图标 -->
       <div class="play-icon-wrap">
         <PlayIcon :size="48" class="play-icon" />
       </div>
+      <!-- 时长 -->
       <div class="duration-wrap" v-if="duration">
         {{ $utils.formaTime(duration / 1000) }}
       </div>
@@ -20,15 +24,9 @@
 
 <script>
 export default {
-  props: ["id", "img", "duration", "playCount", "name", "author"],
-  methods: {
-    goMv() {
-      if (this.id !== undefined && this.id !== null) {
-        this.$router.push(`/mv/${this.id}`);
-      }
-    },
-  },
-};
+  props: ['id', 'img', 'duration', 'playCount', 'name', 'author'],
+  methods: {}
+}
 </script>
 
 <style lang="scss" scoped>

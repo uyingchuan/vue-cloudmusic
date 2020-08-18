@@ -1,0 +1,30 @@
+// 应用级别的样式
+body {
+  color: var(--font-color);
+}
+
+::selection {
+  background-color: $theme-color;
+  color: white;
+}
+
+// 滚动条
+::-webkit-scrollbar-track {
+  background: var(--menu-bgcolor);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-color);
+}
+
+
+// iconfont
+.iconfont {
+    font-size: 16px;
+}

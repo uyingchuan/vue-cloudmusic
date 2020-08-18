@@ -16,29 +16,29 @@
 </template>
 
 <script>
-import PlaylistCard from "@/components/playlist-card";
-import { getPersonalized } from "@/api";
+import PlaylistCard from '@/components/playlist-card'
+import { getPersonalized } from '@/api'
 
 export default {
   async created() {
-    const { result } = await getPersonalized({ limit: 10 });
-    this.list = result;
+    const { result } = await getPersonalized({ limit: 10 })
+    this.list = result
   },
   data() {
     return {
-      list: [],
-    };
+      list: []
+    }
   },
   components: {
-    PlaylistCard,
-  },
-};
+    PlaylistCard
+  }
+}
 </script>
 
 <style lang="scss" scoped>
 .list-wrap {
-    display: flex;
-    margin: 0 -4px;
-    flex-wrap: wrap;
+  display: flex;
+  margin: 0 -4px;
+  flex-wrap: wrap;
 }
 </style>

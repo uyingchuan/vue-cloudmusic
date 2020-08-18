@@ -16,8 +16,8 @@
 
 <script>
 export default {
-  props: ["order", "name", "img", "artistsText"],
-};
+  props: ['order', 'name', 'img', 'artistsText']
+}
 </script>
 
 <style lang="scss" scoped>
@@ -46,12 +46,24 @@ export default {
     width: 60px;
     height: 60px;
     margin-right: 8px;
+
     img {
       width: 100%;
       height: 100%;
     }
 
     .play-icon {
+      @include abs-center;
+    }
+  }
+  .song-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 1;
+    overflow: hidden;
+
+    .song-name {
       @include text-ellipsis;
       color: var(--font-color-white);
     }

@@ -1,3 +1,5 @@
+// 通用工具集
+
 // 获取给定尺寸的img
 export function getImgUrl(url, width, height) {
     if (!height) {
@@ -18,7 +20,41 @@ export function pad(num, n = 2) {
 }
 
 // 格式化日期
-export function formatDate() {}
+export function formatDate(date, fmt = 'yyyy-MM-dd hh:mm:ss') {
+    // 生成Date()格式
+    date = date instanceof Date ? date : new Date(date)
+    // 对于 fmt 有 y 
+    if (/(y+)/.test(fmt)) {
+        fmt = fmt.replace(
+            // RegExp.$1 表示与正则表达式匹配的第一个子匹配项
+            RegExp.$1,
+            // String.substr(start, length) 
+            // 可以抽取字符串中从start下标开始的指定数目的字符
+            (date.getFullYear() + '').substr(4 - RegExp.$1.length)
+        )
+    }
+    let o = {
+        'M+': date.getMonth() + 1,
+        'd+': date.getDate(),
+        'h+': date.getHours(),
+        'm+': date.getMinutes(),
+        's+': date.getSeconds()
+    }
+    for (let k in o) {
+        if (new RegExp(`(${k})`).test(fmt)) {
+            let str = o[k] + ''
+            fmt = fmt.replace(
+                RegExp.$1,
+                RegExp.$1.length === 1 ? str : padLeftZero(str)
+            )
+        }
+    }
+    return fmt
+}
+
+function padLeftZero(str) {
+    return ('00' + str).substr(str.length)
+}
 
 // 格式化数字
 export function formatNumber(number) {
@@ -34,6 +70,7 @@ export function formatTime(interval) {
     return `${minute}:${second}`
 }
 
+// 计算偏差
 export function getPageOffset(page, limit) {
     return (page - 1) * limit
 }
@@ -57,6 +94,7 @@ export function shallowEqual(a, b, compareKey) {
     return true
 }
 
+// 判断传入参数是否定义
 export function isDef(v) {
     return v !== undefined && v !== null
 }

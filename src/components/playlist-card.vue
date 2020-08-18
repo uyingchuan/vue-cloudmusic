@@ -1,3 +1,4 @@
+// 歌单卡片组件
 <template>
   <div class="playlist-card" @click="onClickCard">
     <div class="img-wrap">
@@ -13,12 +14,12 @@
 
 <script>
 export default {
-    props: ["id", "img", "name", "desc"],
-    methods: {
-      onClickCard() {
-        this.$router.push(`/playlist/${this.id}`)
-      }
-    },
+  props: ['id', 'img', 'name', 'desc'],
+  methods: {
+    onClickCard() {
+      this.$router.push(`/playlist/${this.id}`)
+    }
+  }
 }
 </script>
 

@@ -1,3 +1,4 @@
+// 推荐MV组件
 <template>
   <div class="new-mvs" v-if="mvs.length">
     <Title>推荐MV</Title>
@@ -16,32 +17,28 @@
 </template>
 
 <script>
-import { getPersonalizedMv } from "@/api";
-import MvCard from "@/components/mv-card";
+import { getPersonalizedMv } from '@/api'
+import MvCard from '@/components/mv-card'
 
-export default ({
-  created() {
-    this.getMvs();
+export default {
+  async created() {
+    const { result } = await getPersonalizedMv()
+    this.mvs = result
   },
   data() {
     return {
-      mvs: [],
-    };
+      mvs: []
+    }
   },
-  methods: {
-    async getMvs() {
-      const { result } = await getPersonalizedMv();
-      this.mvs = result;
-    },
-  },
+  methods: {},
   components: {
-    MvCard,
-  },
-});
+    MvCard
+  }
+}
 </script>
 
 <style lang="scss" scoped>
 .new-mvs {
-    @include list(25%);
+  @include list(25%);
 }
 </style>

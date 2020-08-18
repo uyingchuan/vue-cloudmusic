@@ -1,25 +1,29 @@
 <template>
   <div class="header" v-if="playlist.id">
+    <!-- 歌单图片 -->
     <div class="img-wrap">
       <img :src="$utils.getImgUrl(playlist.coverImgUrl, 400)" />
     </div>
+    <!-- 歌单内容 -->
     <div class="content">
+      <!-- title -->
       <div class="title-wrap">
         <p class="title">{{ playlist.name }}</p>
       </div>
+      <!-- 作者 -->
       <div class="creator-wrap">
         <img :src="playlist.creator.avatarUrl" class="avatar" />
         <p class="creator">{{ playlist.creator.nickname }}</p>
-        <p class="create-time">
-          {{ $utils.formatDate(playlist.createTime, "yyyy-MM-dd") }} 创建
-        </p>
+        <p class="create-time">{{ $utils.formatDate(playlist.createTime, 'yyyy-MM-dd') }} 创建</p>
       </div>
+      <!-- 播放 -->
       <div class="action-wrap">
         <Button @click="playAll" class="button">
           <Icon class="icon middle" color="white" type="play-round" />
           <span class="middle">播放全部</span>
         </Button>
       </div>
+      <!-- desc -->
       <div class="desc-wrap">
         <p class="desc" v-if="tagsText">
           <span>标签：{{ tagsText }}</span>
@@ -33,26 +37,35 @@
 </template>
 
 <script>
+import { mapActions, mapMutations } from '@/store/helper/music'
+
 export default {
   props: {
+    // 歌单
     playlist: {
       type: Object,
-      default: () => ({}),
+      default: () => ({})
     },
+    // 歌曲数组
     songs: {
       type: Array,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   methods: {
-    playAll() {},
+    playAll() {
+      this.startSong(this.songs[0])
+      this.setPlaylist(this.songs)
+    },
+    ...mapActions(['startSong']),
+    ...mapMutations(['setPlaylist'])
   },
   computed: {
     tagsText() {
-      return this.playlist.tags.join("/");
-    },
-  },
-};
+      return this.playlist.tags.join('/')
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -116,6 +129,10 @@ export default {
         width: 30px;
         height: 30px;
         border-radius: 50%;
+        margin-right: 8px;
+      }
+
+      .creator {
         margin-right: 8px;
       }
 

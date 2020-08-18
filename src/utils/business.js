@@ -1,3 +1,6 @@
+// 业务相关工具集
+
+// 整理song对象
 export function createSong(song) {
     const {
         id,

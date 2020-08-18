@@ -1,47 +1,47 @@
 <script>
-import ElTable from "element-ui/lib/table";
-import { mapMutations, mapActions, mapState } from "@/store/helper/music";
-import { pad, goMvWithCheck } from "@/utils";
+import ElTable from 'element-ui/lib/table'
+import { mapMutations, mapActions, mapState } from '@/store/helper/music'
+import { pad, goMvWithCheck } from '@/utils'
 
 export default {
   props: {
+    // 定义不显示的列
     hideColumns: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
+    // 需渲染的歌曲数组
     songs: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
+    // 高亮文本
     highlightText: {
       type: String,
-      default: "",
+      default: ''
     },
+    //
     renderNameDesc: {
-      type: Function,
-    },
+      type: Function
+    }
   },
   data() {
-    const commonHighLightSlotscopes = {
-      default: (scope) => {
-        const text = scope.row[scope.column.property];
+    const commonHighlightSlotScopes = {
+      default: scope => {
+        const text = scope.row[scope.column.property]
         return (
-          <HighlightText
-            class="song-table-name"
-            text={text}
-            highlightText={this.highlightText}
-          />
-        );
-      },
-    };
+          <HighlightText class="song-table-name" text={text} highlightText={this.highlightText} />
+        )
+      }
+    }
     return {
       columns: [
         {
-          prop: "index",
-          label: "",
-          width: "70",
+          prop: 'index',
+          label: '',
+          width: '70',
           scopedSlots: {
-            default: (scope) => {
+            default: scope => {
               return (
                 <div class="index-wrap">
                   {this.isActiveSong(scope.row) ? (
@@ -50,183 +50,169 @@ export default {
                     <span>{pad(scope.$index + 1)}</span>
                   )}
                 </div>
-              );
-            },
-          },
+              )
+            }
+          }
         },
         {
-          prop: "img",
-          label: " ",
-          width: "100",
+          prop: 'img',
+          label: ' ',
+          width: '100',
           scopedSlots: {
-            default: (scope) => {
+            default: scope => {
               return (
                 <div class="img-wrap">
                   <img v-lazy={this.$utils.getImgUrl(scope.row.img, 120)} />
                   <PlayIcon class="play-icon" />
                 </div>
-              );
-            },
-          },
+              )
+            }
+          }
         },
         {
-          prop: "name",
-          label: "音乐标题",
-          className: "title-td",
+          prop: 'name',
+          label: '音乐标题',
+          className: 'title-td',
           scopedSlots: {
-            default: (scope) => {
+            default: scope => {
               const {
-                row: { mvId },
-              } = scope;
-              const onGoMv = async (e) => {
-                e.stopPropagation();
-                goMvWithCheck(mvId);
-              };
+                row: { mvId }
+              } = scope
+              const onGoMv = async e => {
+                e.stopPropagation()
+                goMvWithCheck(mvId)
+              }
 
               return (
                 <div>
                   <div class="song-table-name-cell">
-                    {commonHighLightSlotscopes.default(scope)}
+                    {commonHighlightSlotScopes.default(scope)}
 
                     {mvId ? (
-                      <Icon
-                        class="mv-icon"
-                        onClick={onGoMv}
-                        type="mv"
-                        color="theme"
-                        size={18}
-                      />
+                      <Icon class="mv-icon" onClick={onGoMv} type="mv" color="theme" size={18} />
                     ) : null}
                   </div>
 
                   {this.renderNameDesc ? this.renderNameDesc(scope) : null}
                 </div>
-              );
-            },
-          },
+              )
+            }
+          }
         },
         {
-          prop: "artistsText",
-          label: "歌手",
-          scopedSlots: commonHighLightSlotscopes,
+          prop: 'artistsText',
+          label: '歌手',
+          scopedSlots: commonHighlightSlotScopes
         },
         {
-          prop: "albumName",
-          label: "专辑",
-          scopedSlots: commonHighLightSlotscopes,
+          prop: 'albumName',
+          label: '专辑',
+          scopedSlots: commonHighlightSlotScopes
         },
         {
-          prop: "durationSecond",
-          label: "时长",
-          width: "100",
+          prop: 'durationSecond',
+          label: '时长',
+          width: '100',
           scopedSlots: {
-            default: (scope) => {
-              return (
-                <span>{this.$utils.formatTime(scope.row.durationSecond)}</span>
-              );
-            },
-          },
-        },
-      ],
-    };
+            default: scope => {
+              return <span>{this.$utils.formatTime(scope.row.durationSecond)}</span>
+            }
+          }
+        }
+      ]
+    }
   },
   methods: {
     onRowClick(song) {
-      this.startSong(song);
-      this.setPlaylist(this.songs);
+      this.startSong(song)
+      this.setPlaylist(this.songs)
     },
     isActiveSong(song) {
-      return song.id === this.currentSong.id;
+      return song.id === this.currentSong.id
     },
     tableCellClassName(args) {
-      const { row, columnIndex } = args;
-      const cellClassNameProp = this.$attrs.cellClassName;
-
-      let retCls = [];
-      // 执行外部传入的方法
-      if (cellClassNameProp) {
-        const propRet = cellClassNameProp(args);
-        if (propRet) {
-          retCls.push(propRet);
-        }
-      }
+      const { row, columnIndex } = args
+      let retCls = []
       if (
         this.isActiveSong(row) &&
-        columnIndex ===
-          this.showColumns.findIndex(({ prop }) => prop === "name")
+        columnIndex === this.showColumns.findIndex(({ prop }) => prop === 'name')
       ) {
-        retCls.push("song-active");
+        retCls.push('song-active')
       }
-      return retCls.join(" ");
+      return retCls.join(' ')
     },
-    ...mapMutations(["setPlaylist"]),
-    ...mapActions(["startSong"]),
+    ...mapMutations(['setPlaylist']),
+    ...mapActions(['startSong'])
   },
   computed: {
+    // 计算需要渲染的列
     showColumns() {
-      const hideColumns = this.hideColumns.slice();
-      const reference = this.songs[0];
-      const { img } = reference;
+      const hideColumns = this.hideColumns.slice()
+      const reference = this.songs[0]
+      const { img } = reference
       if (!img) {
-        hideColumns.push("img");
+        hideColumns.push('img')
       }
-      return this.columns.filter((column) => {
-        return !hideColumns.find((hideColumn) => hideColumn === column.prop);
-      });
+      // 遍历this.columns, 过滤hideColumns与中相同的的prop
+      return this.columns.filter(column => {
+        return !hideColumns.find(hideColumn => hideColumn === column.prop)
+      })
     },
-    ...mapState(["currentSong"]),
+    ...mapState(['currentSong'])
   },
   render() {
-    const elTableProps = ElTable.props;
-    // 从$attrs里提取作为prop的值
-    const { props, attrs } = getPropsAndAttrs(this.$attrs, elTableProps);
+    // 获取element-ui里tanble组件设定的props
+    const elTableProps = ElTable.props
+    const { props, attrs } = getPropsAndAttrs(this.$attrs, elTableProps)
+    // 组件所需的属性
     const tableAttrs = {
       attrs,
       on: {
         ...this.$listeners,
-        ["row-click"]: this.onRowClick,
+        ['row-click']: this.onRowClick
       },
       props: {
         ...props,
         cellClassName: this.tableCellClassName,
-        headerCellClassName: "title-th",
-        data: this.songs,
+        headerCellClassName: 'title-th',
+        data: this.songs
       },
-      style: { width: "99.9%" },
-    };
+      style: { width: '99.9%' }
+    }
     return this.songs.length ? (
       <el-table class="song-table" {...tableAttrs}>
         {this.showColumns.map((column, index) => {
-          const { scopedSlots, ...columnProps } = column;
+          const { scopedSlots, ...columnProps } = column
           return (
             <el-table-column
               key={index}
               props={columnProps}
               scopedSlots={scopedSlots}
             ></el-table-column>
-          );
+          )
         })}
       </el-table>
-    ) : null;
-  },
-};
+    ) : null
+  }
+}
 
+// 遍历rawAttrs，提取作为prop的值
 function getPropsAndAttrs(rawAttrs, componentProps) {
-  const props = {};
-  const attrs = {};
-  Object.keys(rawAttrs).forEach((key) => {
-    const value = rawAttrs[key];
-    if (componentProps.hasOwnProperty(key)) {
-      props[key] = value;
+  const props = {}
+  const attrs = {}
+  Object.keys(rawAttrs).forEach(key => {
+    const value = rawAttrs[key]
+    if (Object.prototype.hasOwnProperty.call(componentProps, 'key')) {
+      props[key] = value
     } else {
-      attrs[key] = value;
+      attrs[key] = value
     }
-  });
-  return { props, attrs };
+  })
+  return { props, attrs }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .song-table {
   .title-th {
     color: var(--font-color-grey2);
@@ -235,10 +221,6 @@ function getPropsAndAttrs(rawAttrs, componentProps) {
 
   .title-td {
     color: var(--font-color-white);
-  }
-
-  .padding-space {
-    padding-left: 24px;
   }
 
   .song-active {

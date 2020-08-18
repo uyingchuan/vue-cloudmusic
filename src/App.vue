@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    <!-- 头部 左侧按钮组件 -->
     <Layout />
+    <!-- 下方播放器组件 -->
     <MiniPlayer />
   </div>
 </template>
@@ -10,13 +12,15 @@ import Layout from '@/layout'
 import MiniPlayer from '@/components/mini-player'
 
 export default {
+  // 使用vue-meta控制页面title
   metaInfo() {
     return {
       title: '欢迎来到cloudmusic'
     }
   },
   components: {
-    Layout, MiniPlayer
+    Layout,
+    MiniPlayer
   }
 }
 </script>

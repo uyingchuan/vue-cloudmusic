@@ -10,16 +10,19 @@
 </template>
 
 <script>
-import Banner from "./banner";
-import Recommend from "./recommend"
-import NewSongs from "./new-songs"
-import NewMvs from "./new-mvs"
+import Banner from './banner'
+import Recommend from './recommend'
+import NewSongs from './new-songs'
+import NewMvs from './new-mvs'
 
 export default {
   components: {
-    Banner, Recommend, NewSongs, NewMvs
-  },
-};
+    Banner,
+    Recommend,
+    NewSongs,
+    NewMvs
+  }
+}
 </script>
 
 <style lang="scss" scoped>

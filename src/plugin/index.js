@@ -37,6 +37,8 @@ export default {
 
         Vue.use(Meta)
 
+        // 加载vue-lazyload插件，实现图片懒加载
+        // 用法为给img标签用v-lazy属性定义图片路径
         Vue.use(VueLazyload, {
             loading: EMPTY_IMG,
             error: EMPTY_IMG,

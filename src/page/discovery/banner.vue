@@ -1,29 +1,27 @@
+// 横幅轮播图组件
 <template>
   <el-carousel class="banner-carousel" :interval="4000" type="card">
     <el-carousel-item :key="banner.scm" v-for="banner in banners">
-      <img
-        :src="$utils.getImgUrl(banner.imageUrl, 1000, 400)"
-        class="banner-img"
-      />
+      <img :src="$utils.getImgUrl(banner.imageUrl, 1000, 400)" class="banner-img" />
       <h1 v-text="$utils.getImgUrl(banner.imageUrl, 1000, 400)"></h1>
     </el-carousel-item>
   </el-carousel>
 </template>
 
 <script>
-import { getBanner } from "@/api";
+import { getBanner } from '@/api'
 
 export default {
   async created() {
-    const { banners } = await getBanner();
-    this.banners = banners;
+    const { banners } = await getBanner()
+    this.banners = banners
   },
   data() {
     return {
-      banners: [],
-    };
-  },
-};
+      banners: []
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

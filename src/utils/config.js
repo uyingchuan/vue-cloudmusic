@@ -1,3 +1,6 @@
+// 音乐播放器配置相关
+
+// 播放模式 
 export const playModeMap = {
     sequence: {
         code: 'sequence',

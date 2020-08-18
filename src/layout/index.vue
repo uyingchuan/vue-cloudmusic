@@ -1,10 +1,14 @@
 <template>
   <div class="layout">
+    <!-- 页面头部 -->
     <LayoutHeader />
+    <!-- 页面主体 -->
     <div class="layout-body">
-      <div class="layout-menu" v-show="isMenuShow">
+      <!-- 页面菜单 -->
+      <div class="layout-menu">
         <LayoutMenu />
       </div>
+      <!-- 页面主内容区域 -->
       <div class="content" id="page-content">
         <router-view :class="routerViewCls" />
       </div>
@@ -13,28 +17,22 @@
 </template>
 
 <script>
-import LayoutHeader from "./header";
-import LayoutMenu from "./menu";
-import { layoutCenterNames } from "@/router";
+import LayoutHeader from './header'
+import LayoutMenu from './menu'
+import { layoutCenterNames } from '@/router'
 
 export default {
-  data() {
-    return {
-      isMenuShow: true,
-    };
-  },
   components: {
     LayoutHeader,
-    LayoutMenu,
+    LayoutMenu
   },
   computed: {
     routerViewCls() {
-      return layoutCenterNames.find((name) => name === this.$route.name)
-        ? "router-view-center"
-        : "";
-    },
-  },
-};
+      // 判断是否为已定义需在内容区居中的页面
+      return layoutCenterNames.find(name => name === this.$route.name) ? 'router-view-center' : ''
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
