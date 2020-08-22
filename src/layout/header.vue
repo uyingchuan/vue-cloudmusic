@@ -5,13 +5,13 @@
     <div class="left">
       <!-- mac端三按钮 -->
       <div class="buttons">
-        <div class="mac-button red">
+        <div class="mac-button red" @click="onClickLogo">
           <Icon :size="9" type="home" />
         </div>
-        <div class="mac-button yellow">
+        <div class="mac-button yellow" @click="exitFullscreen">
           <Icon :size="9" type="minus" />
         </div>
-        <div class="mac-button green">
+        <div class="mac-button green" @click="fullScreen">
           <Icon :size="9" type="fullscreen" />
         </div>
       </div>
@@ -34,11 +34,25 @@
 import Theme from '@/components/theme'
 import Search from '@/components/search'
 import RoutesHistory from '@/components/routes-history'
+import { requestFullscreen, exitFullscreen, isFullScreen } from '@/utils'
 
 export default {
   data() {
     return {
       isPlayerShow: false
+    }
+  },
+  methods: {
+    onClickLogo() {
+      this.$router.push('/discovery')
+    },
+    fullScreen() {
+      requestFullscreen(document.documentElement)
+    },
+    exitFullscreen() {
+      if (isFullScreen()) {
+        exitFullscreen()
+      }
     }
   },
   components: {
