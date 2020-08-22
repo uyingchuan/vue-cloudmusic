@@ -8,6 +8,7 @@
 
 ### 进度
 
+- [x] 最新音乐
 - [x] 主题换肤
 - [x] 歌单详情
 - [x] 最新歌单
@@ -53,6 +54,7 @@ https://binaryify.github.io/NeteaseCloudMusicApi
 ![首页](./images/discovery.png)
 ![推荐歌单](./images/recommend.png)
 ![歌单列表](./images/playlist-detail.png)
+![最新音乐](./images/songs.png)
 
 
 ### 致谢
