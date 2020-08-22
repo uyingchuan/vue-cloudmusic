@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import Discovery from '@/page/discovery'
 import Playlists from '@/page/playlists'
 import PlaylistDetail from '@/page/playlist-detail'
+import Songs from '@/page/songs'
 
 // 应用内容区展示的页面
 export const layoutCenterNames = ['discovery', 'playlists', 'songs', 'mvs']
@@ -32,7 +33,7 @@ export const menuRoutes = [
   {
     path: '/songs',
     name: 'songs',
-    component: Discovery,
+    component: Songs,
     meta: {
       title: '最新音乐',
       icon: 'yinyue'

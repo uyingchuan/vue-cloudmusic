@@ -7,31 +7,73 @@
         @tabChange="getSongs"
         align="right"
         type="small"
-        v-model="avtiveTabIndex"
+        v-model="activeTabIndex"
       />
     </div>
+    <!-- SongTable继承了elTable的props，header-row-class-name为elTable所拥有的 -->
     <SongTable :songs="songs" header-row-class-name="header-row" />
   </div>
 </template>
 
 <script>
+import SongTable from '@/components/song-table'
+import { getTopSongs } from '@/api'
+import { createSong } from '@/utils'
+
 export default {
-    async created() {
-        this.tabs = [
-            { title: "全部", type: 0 },
-            { title: "华语", type: 7 },
-            { title: "欧美", type: 96 },
-            { title: "日本", type: 8 },
-            { title: "韩国", type: 16 },
-        ]
-    },
-    data() {
-        return {
-            activeTabIndex: 0,
-            songs: []
-        }
-    },
-    methods: {},
-    components: {}
+  async created() {
+    this.tabs = [
+      { title: '全部', type: 0 },
+      { title: '华语', type: 7 },
+      { title: '欧美', type: 96 },
+      { title: '日本', type: 8 },
+      { title: '韩国', type: 16 }
+    ]
+    this.getSongs()
+  },
+  data() {
+    return {
+      activeTabIndex: 0,
+      songs: []
+    }
+  },
+  methods: {
+    async getSongs() {
+      const { data } = await getTopSongs(this.tabs[this.activeTabIndex].type)
+      console.log(data)
+      this.songs = data.map(song => {
+        const {
+          id,
+          name,
+          artists,
+          duration,
+          mvid,
+          album: { picUrl, name: albumName }
+        } = song
+        return createSong({
+          id,
+          name,
+          artists,
+          duration,
+          albumName,
+          img: picUrl,
+          mvId: mvid
+        })
+      })
+    }
+  },
+  components: {
+    SongTable
+  }
 }
 </script>
+
+<style lang="scss" scoped>
+.songs {
+  padding: 12px;
+
+  /deep/.header-row {
+    display: none;
+  }
+}
+</style>
