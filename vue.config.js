@@ -1,18 +1,6 @@
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production' ? '/cloudmusic' : '/',
-    configureWebpack: {
-        resolve: {
-            alias: {
-                // 'components': '@/components',
-                // 'style': '@/style',
-                // 'utils': '@/utils',
-                // 'router': '@/router',
-                // 'page': '@/page',
-                // 'layout': '@/layout'
-            }
-        }
-    },
-    // 配置css的全局变量
+    // 配置css加载额外的sass的全局变量
     css: {
         loaderOptions: {
             sass: {

@@ -2,10 +2,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 // const 路由加载区
-import Discovery from '@/page/discovery'
-import Playlists from '@/page/playlists'
-import PlaylistDetail from '@/page/playlist-detail'
-import Songs from '@/page/songs'
+const Discovery = () => import(/* webpackChunkName: "Discovery" */ '@/page/discovery')
+const Playlists = () => import(/* webpackChunkName: "Playlists" */ '@/page/playlists')
+const PlaylistDetail = () => import(/* webpackChunkName: "PlaylistDetail" */ '@/page/playlist-detail')
+const Songs = () => import(/* webpackChunkName: "Discovery" */ '@/page/songs')
 
 // 应用内容区展示的页面
 export const layoutCenterNames = ['discovery', 'playlists', 'songs', 'mvs']

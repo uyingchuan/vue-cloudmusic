@@ -71,12 +71,6 @@ export default {
   background-color: var(--header-bgcolor);
   padding-right: 36px;
 
-  // @include el-input-theme(
-  //   var(--header-input-color),
-  //   var(--header-input-bgcolor),
-  //   var(--header-input-placeholder-color)
-  // );
-
   // 深度作用选择器，使样式影响子组件
   /deep/ .iconfont {
     color: var(--header-font-color);
@@ -86,10 +80,6 @@ export default {
   .left {
     padding: 14px 14px 0 8px;
     display: flex;
-
-    // .font-weight {
-    //   white-space: nowrap;
-    // }
 
     .buttons {
       display: flex;

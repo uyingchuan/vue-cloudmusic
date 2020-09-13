@@ -65,7 +65,7 @@ export default {
     };
   },
   methods: {
-    changeTheme(themeKey, themeValue) {
+    changeTheme(themeKey) {
       storage.set(THEME_KEY, themeKey);
       const theme = this.themeMap[themeKey].file;
       Object.keys(theme).forEach((key) => {
