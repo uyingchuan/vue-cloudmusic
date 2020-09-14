@@ -12,13 +12,21 @@
       href="//at.alicdn.com/t/font_777085_hi9s8r75skv.css"
     />
 
-    <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        // use the window load event to keep the page load performance
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js")
+        })
+      }
+    </script>
     <!-- built files will be auto injected -->
   </body>
 </html>
