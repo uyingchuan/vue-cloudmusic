@@ -5,7 +5,7 @@ module.exports = {
     configureWebpack: {
         devtool: isProd ? false : 'source-map'
     },
-    // 配置加载额外的sass的全局变量
+    // 配置预加载sass的全局变量
     css: {
         loaderOptions: {
             sass: {
