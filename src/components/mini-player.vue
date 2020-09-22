@@ -47,6 +47,9 @@
     </div>
     <!-- 右侧按钮部分 -->
     <div class="mode">
+      <!-- 分享按钮 -->
+      <Share :shareUrl="shareUrl" class="mode-item" v-show="hasCurrentSong" />
+
       <!-- 播放模式 -->
       <el-popover placement="top" trigger="hover" width="160">
         <p>{{ playModeText }}</p>
@@ -103,7 +106,7 @@ import {
   mapActions,
 } from "@/store/helper/music";
 import Storage from "good-storage";
-// import Share from "@/components/share";
+import Share from "@/components/share";
 import { VOLUME_KEY, playModeMap, isDef } from "@/utils";
 
 const DEFAULT_VOLUME = 0.75;
@@ -271,7 +274,7 @@ export default {
     ]),
     ...mapGetters(["prevSong", "nextSong"]),
   },
-  // components: { Share },
+  components: { Share }
 };
 </script>
 

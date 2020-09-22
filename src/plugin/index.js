@@ -1,4 +1,4 @@
-import { Input, Carousel, CarouselItem, Table, Popover, Pagination, TableColumn } from 'element-ui'
+import { Input, Carousel, CarouselItem, Table, Popover, Pagination, TableColumn, Dialog, Button } from 'element-ui'
 import * as utils from '@/utils'
 import VueLazyload from 'vue-lazyload'
 import Meta from 'vue-meta'
@@ -34,6 +34,8 @@ export default {
         Vue.use(Popover)
         Vue.use(Pagination)
         Vue.use(TableColumn)
+        Vue.use(Button)
+        Vue.use(Dialog)
 
         Vue.use(Meta)
 

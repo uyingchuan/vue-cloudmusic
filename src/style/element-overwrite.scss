@@ -110,3 +110,25 @@ $input-height: 24px;
     color: $theme-color !important;
   }
 }
+
+// button
+.el-button--primary {
+  background: $theme-color !important;
+  border-color: $theme-color !important;
+}
+
+// dialog
+.el-dialog {
+  background: var(--modal-bg-color) !important;
+  @include box-shadow;
+
+  .el-dialog__body {
+    color: var(--font-color) !important;
+  }
+
+  // 右上角图标
+  .el-dialog__headerbtn:focus .el-dialog__close,
+  .el-dialog__headerbtn:hover .el-dialog__close {
+    color: $theme-color;
+  }
+}
