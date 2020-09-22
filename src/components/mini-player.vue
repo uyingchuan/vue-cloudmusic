@@ -49,7 +49,6 @@
     <div class="mode">
       <!-- 分享按钮 -->
       <Share :shareUrl="shareUrl" class="mode-item" v-show="hasCurrentSong" />
-
       <!-- 播放模式 -->
       <el-popover placement="top" trigger="hover" width="160">
         <p>{{ playModeText }}</p>
