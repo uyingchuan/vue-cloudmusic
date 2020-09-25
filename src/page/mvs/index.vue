@@ -12,6 +12,7 @@
             <span class="tabs-type">排序：</span>
             <Tabs :tabs="sortTabs" type="split" v-model="activeSorttabIndex" />
         </div>
+        <!-- mv卡片 -->
         <div class="mv-crads">
             <ul class="list-wrap">
                 <li class="list-item" v-for="mv in mvs" :key="mv.id">
@@ -26,6 +27,7 @@
                 </li>
             </ul>
         </div>
+        <!-- 分页 -->
         <Pagination
             :current-page.sync="currentPage"
             :page-size="pageSize"
@@ -84,21 +86,18 @@ export default {
     },
     watch: {
         activeAreatabIndex: {
-            deep: true,
             handler() {
                 this.currentPage = 1
                 this.onPageChange()
             }
         },
         activeSorttabIndex: {
-            deep: true,
             handler() {
                 this.currentPage = 1
                 this.onPageChange()
             }
         },
         activeTypetabIndex: {
-            deep: true,
             handler() {
                 this.currentPage = 1
                 this.onPageChange()
