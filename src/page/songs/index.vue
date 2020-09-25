@@ -40,7 +40,6 @@ export default {
   methods: {
     async getSongs() {
       const { data } = await getTopSongs(this.tabs[this.activeTabIndex].type)
-      console.log(data)
       this.songs = data.map(song => {
         const {
           id,
