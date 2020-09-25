@@ -65,4 +65,4 @@ npm run serve
 ```
 
 ### 致谢
-这个音乐播放器项目的开发过程是跟进一个 [开源项目](https://github.com/sl1673495/vue-netease-music) 。这个开源项目中有很多知识点让我受益匪浅，在这里感谢这位老哥的开源。
+在这里感谢这个 [开源项目](https://github.com/sl1673495/vue-netease-music) 。从这个开源项目中有很多知识点让我受益匪浅，感谢这位老哥的开源。
