@@ -55,6 +55,7 @@ https://binaryify.github.io/NeteaseCloudMusicApi
 ![推荐歌单](./images/recommend.png)
 ![歌单列表](./images/playlist-detail.png)
 ![最新音乐](./images/songs.png)
+![最新MV](./images/mvs.png)
 
 
 ### 安装与使用
