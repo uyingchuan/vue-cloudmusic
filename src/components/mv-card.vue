@@ -14,7 +14,7 @@
       </div>
       <!-- 时长 -->
       <div class="duration-wrap" v-if="duration">
-        {{ $utils.formaTime(duration / 1000) }}
+        {{ $utils.formatTime(duration / 1000) }}
       </div>
     </div>
     <p class="name" v-if="name">{{ name }}</p>

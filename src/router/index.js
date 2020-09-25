@@ -6,6 +6,7 @@ const Discovery = () => import(/* webpackChunkName: "Discovery" */ '@/page/disco
 const Playlists = () => import(/* webpackChunkName: "Playlists" */ '@/page/playlists')
 const PlaylistDetail = () => import(/* webpackChunkName: "PlaylistDetail" */ '@/page/playlist-detail')
 const Songs = () => import(/* webpackChunkName: "Discovery" */ '@/page/songs')
+const Mvs = () => import(/* webpackChunkName: "Mvs" */ '@/page/mvs')
 
 // 应用内容区展示的页面
 export const layoutCenterNames = ['discovery', 'playlists', 'songs', 'mvs']
@@ -42,7 +43,7 @@ export const menuRoutes = [
   {
     path: '/mvs',
     name: 'mvs',
-    component: Discovery,
+    component: Mvs,
     meta: {
       title: '最新MV',
       icon: 'mv'
