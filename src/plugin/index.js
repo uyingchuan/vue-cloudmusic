@@ -3,6 +3,7 @@ import * as utils from '@/utils'
 import VueLazyload from 'vue-lazyload'
 import Meta from 'vue-meta'
 
+// 透明图片
 const EMPTY_IMG = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
 
 export default {
