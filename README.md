@@ -3,7 +3,7 @@
 这是一个高仿mac端网易云的音乐播放器，目前只开发了一部分功能，我会努力开发完这个项目的。
 
 
-### [源码地址](https://gitee.com/uyc/vue-cloudmusic)
+### [源码地址](https://github.com/uyc/vue-cloudmusic)
 
 
 ### 进度
