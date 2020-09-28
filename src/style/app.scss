@@ -28,3 +28,13 @@ body {
 .iconfont {
     font-size: 16px;
 }
+
+a {
+  color: $theme-color;
+
+  &:hover,
+  &:focus,
+  &:visited {
+    color: $theme-color;
+  }
+}
