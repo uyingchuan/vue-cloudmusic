@@ -5,7 +5,7 @@
     <!-- 页面主体 -->
     <div class="layout-body">
       <!-- 页面菜单 -->
-      <div class="layout-menu">
+      <div class="layout-menu" v-show="isMenuShow">
         <LayoutMenu />
       </div>
       <!-- 页面主内容区域 -->
@@ -20,6 +20,7 @@
 import LayoutHeader from './header'
 import LayoutMenu from './menu'
 import { layoutCenterNames } from '@/router'
+import { mapState } from "@/store/helper/music"
 
 export default {
   components: {
@@ -30,7 +31,8 @@ export default {
     routerViewCls() {
       // 判断是否为已定义需在内容区居中的页面
       return layoutCenterNames.find(name => name === this.$route.name) ? 'router-view-center' : ''
-    }
+    },
+    ...mapState(["isMenuShow"])
   }
 }
 </script>

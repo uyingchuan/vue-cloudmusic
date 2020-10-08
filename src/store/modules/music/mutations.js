@@ -34,5 +34,9 @@ export default {
   },
   setCurrentTime(state, time) {
     state.currentTime = time
+  },
+
+  setMenuShow(state, show) {
+    state.isMenuShow = show
   }
 };
