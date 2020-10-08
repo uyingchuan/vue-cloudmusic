@@ -132,3 +132,16 @@ $input-height: 24px;
     color: $theme-color;
   }
 }
+
+// loading
+.el-loading-spinner {
+  circle {
+    stroke: $theme-color !important;
+  }
+  .el-loading-text {
+    color: $theme-color !important;
+  }
+  .el-icon-loading {
+    color: $theme-color !important;
+  }
+}
