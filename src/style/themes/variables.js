@@ -49,4 +49,6 @@ export default {
     ['--song-shallow-grey-bgcolor']: '#2a2a2a',
     // modal
     ['--modal-bg-color']: '#202020',
+
+    ['--error-text']: '#ff0033',
 }

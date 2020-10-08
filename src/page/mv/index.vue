@@ -7,6 +7,7 @@
 
                 <div class="player">
                     <VideoPlayer :url="mvPlayInfo.url" ref="video" />
+                    <p v-if="isUrlNull" class="error-text">哎呀，突然找不到视频地址呢。</p>
                 </div>
 
                 <div class="author-wrap">
@@ -80,7 +81,8 @@ export default {
             mvDetail: {},
             mvPlayInfo: "",
             artist: {},
-            simiMvs: []
+            simiMvs: [],
+            isUrlNull: false
         }
     },
     methods: {
@@ -101,8 +103,13 @@ export default {
             this.artist = artist
             this.simiMvs = simiMvs
 
+            if (!mvPlayInfo.url) {
+                this.isUrlNull = true
+            }
+
             this.$nextTick(() => {
                 const player = this.$refs.video.player
+                if (this.isUrlNull) return
                 // 加载高清源
                 player.emit("resourceReady", genResource(this.mvDetail.brs, mvPlayInfo))
                 player.on("play", () => {
@@ -169,6 +176,13 @@ function genResource(brs, mvPlayInfo) {
                 margin-bottom: 16px;
                 overflow: hidden;
                 border-radius: 4px;
+
+                .error-text {
+                    color: var(--error-text);
+                    height: 40px;
+                    width: 100%;
+
+                }
             }
 
             .author-wrap {
