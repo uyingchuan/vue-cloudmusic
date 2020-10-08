@@ -1,6 +1,6 @@
 // mv卡片组件
 <template>
-  <div class="mv-card">
+  <div class="mv-card" @click="goMv">
     <div class="img-wrap">
       <img v-lazy="$utils.getImgUrl(img, 500, 260)" />
       <!-- 播放次数 -->
@@ -23,9 +23,17 @@
 </template>
 
 <script>
+import { isDef } from "@/utils"
+
 export default {
   props: ['id', 'img', 'duration', 'playCount', 'name', 'author'],
-  methods: {}
+  methods: {
+    goMv() {
+      if (isDef(this.id)) {
+        this.$router.push(`/mv/${this.id}`)
+      }
+    }
+  }
 }
 </script>
 

@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-// const 路由加载区
+// 路由加载区
 const Discovery = () => import(/* webpackChunkName: "Discovery" */ '@/page/discovery')
 const Playlists = () => import(/* webpackChunkName: "Playlists" */ '@/page/playlists')
 const PlaylistDetail = () => import(/* webpackChunkName: "PlaylistDetail" */ '@/page/playlist-detail')
-const Songs = () => import(/* webpackChunkName: "Discovery" */ '@/page/songs')
+const Songs = () => import(/* webpackChunkName: "Songs" */ '@/page/songs')
 const Mvs = () => import(/* webpackChunkName: "Mvs" */ '@/page/mvs')
+const Mv = () => import(/*webpackChunkName: "Mv" */ '@/page/mv')
+
 
 // 应用内容区展示的页面
 export const layoutCenterNames = ['discovery', 'playlists', 'songs', 'mvs']
@@ -68,6 +70,12 @@ const routes = [
     path: '/playlist/:id',
     name: 'playlist',
     component: PlaylistDetail
+  },
+  {
+    path: '/mv/:id',
+    name: 'mv',
+    component: Mv,
+    props: (route) => ({id: + route.params.id})
   },
   ...menuRoutes
 ]
