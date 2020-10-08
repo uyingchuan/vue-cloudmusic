@@ -98,3 +98,7 @@ export function shallowEqual(a, b, compareKey) {
 export function isDef(v) {
     return v !== undefined && v !== null
 }
+
+export function isLast(index, arr) {
+    return index === arr.length - 1
+}

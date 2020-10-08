@@ -32,9 +32,10 @@
       class="table"
       v-show="activeTab === SONG_IDX"
     />
-    <!-- 评论列表，暂时未完成 -->
+    <!-- 评论列表 -->
     <div class="comments" v-show="activeTab === COMMENT_IDX">
       <!-- <Comments :id="id" @update="onCommentsUpdate" type="playlist" /> -->
+      <Comments :id="id" type="playlist" />
     </div>
   </div>
 </template>
@@ -43,6 +44,7 @@
 import { getListDetail, getSongDetail } from '@/api'
 import Header from './header'
 import SongTable from '@/components/song-table'
+import Comments from '@/components/comments'
 import { createSong, scrollInto } from '@/utils'
 
 const SONG_IDX = 0
@@ -132,7 +134,8 @@ export default {
   },
   components: {
     Header,
-    SongTable
+    SongTable,
+    Comments
   }
 }
 </script>
