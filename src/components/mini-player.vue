@@ -405,5 +405,12 @@ export default {
       }
     }
   }
+
+  .progress-bar-wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -14px;
+  }
 }
 </style>
