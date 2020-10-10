@@ -21,7 +21,7 @@ export default {
     state.playHistory = history;
   },
   setPlayerShow(state, show) {
-    state.isPlayShow = show
+    state.isPlayerShow = show
   },
   setPlaylistShow(state, show) {
     state.isPlaylistShow = show

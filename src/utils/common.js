@@ -94,6 +94,15 @@ export function shallowEqual(a, b, compareKey) {
     return true
 }
 
+export function notify(message, type) {
+    const params = {
+        message,
+        duration: 1500
+    }
+    const fn = type ? Notification[type] : Notification
+    return fn(params)
+}
+
 // 判断传入参数是否定义
 export function isDef(v) {
     return v !== undefined && v !== null

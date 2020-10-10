@@ -8,3 +8,6 @@ export const getListDetail = params => request.get('/playlist/detail', { params 
 
 // 新歌速递
 export const getTopSongs = type => request.get(`/top/song?type=${type}`)
+
+// 歌词
+export const getLyric = id => request.get(`/lyric?id=${id}`)

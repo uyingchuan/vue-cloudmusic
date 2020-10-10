@@ -15,6 +15,10 @@
           <Icon :size="9" type="fullscreen" />
         </div>
       </div>
+      <!-- 拉下player -->
+      <div class="shrink-player" v-if="isPlayerShow" @click="onClickDown">
+        <Icon :backdrop="true" type="down" />
+      </div>
       <!-- history按钮 -->
       <div class="history" v-show="!isPlayerShow">
         <RoutesHistory />
@@ -35,13 +39,9 @@ import Theme from '@/components/theme'
 import Search from '@/components/search'
 import RoutesHistory from '@/components/routes-history'
 import { requestFullscreen, exitFullscreen, isFullScreen } from '@/utils'
+import { mapState, mapMutations } from '@/store/helper/music'
 
 export default {
-  data() {
-    return {
-      isPlayerShow: false
-    }
-  },
   methods: {
     onClickLogo() {
       this.$router.push('/discovery')
@@ -53,7 +53,14 @@ export default {
       if (isFullScreen()) {
         exitFullscreen()
       }
-    }
+    },
+    onClickDown() {
+      this.setPlayerShow(false)
+    },
+    ...mapMutations(["setPlayerShow"])
+  },
+  computed: {
+    ...mapState(["isPlayerShow"])
   },
   components: {
     Theme,
@@ -118,6 +125,12 @@ export default {
           transform: scale(0.75);
         }
       }
+    }
+
+    .shrink-player {
+      position: relative;
+      top: -6px;
+      margin-left: 16px;
     }
 
     .history {

@@ -1,5 +1,9 @@
 // 业务相关工具集
 
+import router from "@/router"
+import { getMvDetail } from "@/api"
+import { notify } from "./common"
+
 // 整理song对象
 export function createSong(song) {
     const {
@@ -37,4 +41,17 @@ function getSongPlayUrl(id) {
 
 export function getArtistsText(artists) {
     return (artists || []).map(({ name }) => name).join('/')
+}
+
+export async function goMvWithCheck(id) {
+    try {
+        await getMvDetail(id)
+        goMv(id)
+    } catch (error) {
+        notify("mv获取失败")
+    }
+}
+
+export function goMv(id) {
+    router.push(`/mv/${id}`)
 }

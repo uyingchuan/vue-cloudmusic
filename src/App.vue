@@ -2,6 +2,8 @@
   <div id="app">
     <!-- 头部 左侧按钮组件 -->
     <Layout />
+    <!-- 歌曲详情页 -->
+    <Player />
     <!-- 下方播放器组件 -->
     <MiniPlayer />
   </div>
@@ -10,6 +12,7 @@
 <script>
 import Layout from '@/layout'
 import MiniPlayer from '@/components/mini-player'
+import Player from '@/components/player'
 
 export default {
   // 使用vue-meta控制页面title
@@ -20,7 +23,8 @@ export default {
   },
   components: {
     Layout,
-    MiniPlayer
+    MiniPlayer,
+    Player
   }
 }
 </script>
