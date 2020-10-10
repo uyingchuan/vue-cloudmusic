@@ -8,6 +8,8 @@
 
 ### 进度
 
+- [x] 歌词及评论
+- [x] mv详情及播放
 - [x] 最新MV
 - [x] 最新音乐
 - [x] 主题换肤
@@ -21,6 +23,7 @@
 - CSS Variables实现主题换肤
 - Sass
 - postcss-pxtorem 自动计算rem，实现移动端适配
+- better-scroll 实现滚动歌词
 
 
 ### 后端接口
@@ -56,7 +59,8 @@ https://binaryify.github.io/NeteaseCloudMusicApi
 ![歌单列表](./images/playlist-detail.png)
 ![最新音乐](./images/songs.png)
 ![最新MV](./images/mvs.png)
-
+![播放歌曲](./images/player.png)
+![播放MV](./images/mv.png)
 
 ### 安装与使用
 ```bash
