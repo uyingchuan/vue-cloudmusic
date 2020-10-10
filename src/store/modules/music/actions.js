@@ -6,7 +6,7 @@ export default {
   async startSong({ commit, state }, rawSong) {
     // 浅拷贝一份 改变引用
     // 1.不污染元素据
-    // 2.单曲循环为了出发watch
+    // 2.单曲循环为了触发watch
     const song = Object.assign({}, rawSong);
     if (!song.img) {
       if (song.albumId) {
