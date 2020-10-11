@@ -8,6 +8,7 @@
 
 ### 进度
 
+- [x] 播放列表 & 播放记录
 - [x] 歌词及评论
 - [x] mv详情及播放
 - [x] 最新MV
@@ -61,6 +62,7 @@ https://binaryify.github.io/NeteaseCloudMusicApi
 ![最新MV](./images/mvs.png)
 ![播放歌曲](./images/player.png)
 ![播放MV](./images/mv.png)
+![播放记录](./images/show-playlist.png)
 
 ### 安装与使用
 ```bash
