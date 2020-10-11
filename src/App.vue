@@ -6,6 +6,8 @@
     <Player />
     <!-- 下方播放器组件 -->
     <MiniPlayer />
+    <!-- 右侧播放记录组件 -->
+    <Playlist />
   </div>
 </template>
 
@@ -13,6 +15,7 @@
 import Layout from '@/layout'
 import MiniPlayer from '@/components/mini-player'
 import Player from '@/components/player'
+import Playlist from '@/components/playlist'
 
 export default {
   // 使用vue-meta控制页面title
@@ -24,7 +27,8 @@ export default {
   components: {
     Layout,
     MiniPlayer,
-    Player
+    Player,
+    Playlist,
   }
 }
 </script>

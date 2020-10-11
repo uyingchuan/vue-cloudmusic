@@ -27,4 +27,18 @@ export default {
     commit("setPlayHistory", playHistoryCopy);
     storage.set(PLAY_HISTORY_KEY, playHistoryCopy);
   },
+  clearCurrentSong({ commit }) {
+    commit('setCurrentSong', {})
+    commit('setPlayingState', false)
+    commit('setCurrentTime', 0)
+  },
+  clearPlaylist({ commit, dispatch }) {
+    commit('setPlaylist', [])
+    dispatch('clearCurrentSong')
+  },
+  clearHistory({ commit }) {
+    const history = []
+    commit('setPlayHistory', history)
+    storage.set(PLAY_HISTORY_KEY, history)
+  }
 };

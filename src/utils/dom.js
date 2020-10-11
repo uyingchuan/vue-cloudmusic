@@ -36,3 +36,14 @@ export function isFullScreen() {
         document.mozFullScreen ||
         document.webkitIsFullScreen
 }
+
+export function hasParent(dom, parentDom) {
+    parentDom = Array.isArray(parentDom) ? parentDom : [parentDom]
+    while(dom) {
+        if (parentDom.find(o => o === dom)) {
+            return true
+        } else {
+            dom = dom.parentNode
+        }
+    }
+}

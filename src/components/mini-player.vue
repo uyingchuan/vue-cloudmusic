@@ -32,12 +32,7 @@
     <!-- 控制台 -->
     <div class="control">
       <Icon @click="prev" :size="24" class="icon" type="prev" />
-      <el-popover
-        :value="isPlayErrorPromptShow"
-        trigger="manual"
-        placement="top"
-        width="160"
-      >
+      <el-popover :value="isPlayErrorPromptShow" trigger="manual" placement="top" width="160">
         <p>请点击开始播放</p>
         <div @click="togglePlaying" class="play-icon" slot="reference">
           <Icon :size="24" :type="playIcon" />
@@ -61,7 +56,7 @@
         />
       </el-popover>
       <!-- 播放列表 -->
-      <el-popover>
+      <el-popover :value="isPlaylistPromptShow" placement="top" trigger="manual" width="160">
         <p>已更新歌单</p>
         <Icon
           @click="togglePlaylistShow"
@@ -98,183 +93,176 @@
 </template>
 
 <script>
-import {
-  mapState,
-  mapMutations,
-  mapGetters,
-  mapActions,
-} from "@/store/helper/music";
-import Storage from "good-storage";
-import Share from "@/components/share";
-import { VOLUME_KEY, playModeMap, isDef } from "@/utils";
+import { mapState, mapMutations, mapGetters, mapActions } from '@/store/helper/music'
+import Storage from 'good-storage'
+import Share from '@/components/share'
+import { VOLUME_KEY, playModeMap, isDef } from '@/utils'
 
-const DEFAULT_VOLUME = 0.75;
+const DEFAULT_VOLUME = 0.75
 export default {
   data() {
     return {
       isPlayErrorPromptShow: false,
       songReady: false,
-      volume: Storage.get(VOLUME_KEY, DEFAULT_VOLUME),
-    };
+      volume: Storage.get(VOLUME_KEY, DEFAULT_VOLUME)
+    }
   },
   mounted() {
-    this.audio.volume = this.volume;
+    this.audio.volume = this.volume
   },
   methods: {
     // 更新播放状态
     togglePlaying() {
       // 当前未播放歌曲则直接退出
       if (!this.currentSong.id) {
-        return;
+        return
       }
-      this.setPlayingState(!this.playing);
+      this.setPlayingState(!this.playing)
     },
     ready() {
-      this.songReady = true;
+      this.songReady = true
     },
     async play() {
       if (this.songReady) {
         try {
-          await this.audio.play();
+          await this.audio.play()
           if (this.isPlayErrorPromptShow) {
-            this.isPlayErrorPromptShow = false;
+            this.isPlayErrorPromptShow = false
           }
         } catch (error) {
           // 提示用户手动播放
-          this.isPlayErrorPromptShow = true;
-          this.setPlayingState(false);
+          this.isPlayErrorPromptShow = true
+          this.setPlayingState(false)
         }
       }
     },
     pause() {
-      this.audio.pause();
+      this.audio.pause()
     },
     updateTime(e) {
-      const time = e.target.currentTime;
-      this.setCurrentTime(time);
+      const time = e.target.currentTime
+      this.setCurrentTime(time)
     },
     prev() {
       if (this.songReady) {
-        this.startSong(this.prevSong);
+        this.startSong(this.prevSong)
       }
     },
     next() {
       if (this.songReady) {
-        this.startSong(this.nextSong);
+        this.startSong(this.nextSong)
       }
     },
     end() {
-      this.next();
+      this.next()
     },
     onProgressChange(percent) {
-      this.audio.currentTime = this.currentSong.durationSecond * percent;
-      this.setPlayingState(true);
+      this.audio.currentTime = this.currentSong.durationSecond * percent
+      this.setPlayingState(true)
     },
     onVolumeChange(percent) {
-      this.audio.volume = percent;
-      Storage.set(VOLUME_KEY, percent);
+      this.audio.volume = percent
+      Storage.set(VOLUME_KEY, percent)
     },
     onChangePlayMode() {
-      const modeKeys = Object.keys(playModeMap);
-      const currentModeIndex = modeKeys.findIndex(
-        (key) => playModeMap[key].code === this.playMode
-      );
-      const nextIndex = (currentModeIndex + 1) % modeKeys.length;
-      const nextModeKey = modeKeys[nextIndex];
-      const nextMode = playModeMap[nextModeKey];
-      this.setPlayMode(nextMode.code);
+      const modeKeys = Object.keys(playModeMap)
+      const currentModeIndex = modeKeys.findIndex(key => playModeMap[key].code === this.playMode)
+      const nextIndex = (currentModeIndex + 1) % modeKeys.length
+      const nextModeKey = modeKeys[nextIndex]
+      const nextMode = playModeMap[nextModeKey]
+      this.setPlayMode(nextMode.code)
     },
     togglePlaylistShow() {
-      this.setPlaylistShow(!this.isPlaylistShow);
+      this.setPlaylistShow(!this.isPlaylistShow)
     },
     togglePlayerShow() {
-      this.setPlayerShow(!this.isPlayerShow);
+      this.setPlayerShow(!this.isPlayerShow)
     },
     goGithub() {
-      window.open("https://github.com/uyingchuan");
+      window.open('https://github.com/uyingchuan')
     },
 
     ...mapMutations([
-      "setCurrentTime",
-      "setPlayingState",
-      "setPlayMode",
-      "setPlaylistShow",
-      "setPlayerShow",
+      'setCurrentTime',
+      'setPlayingState',
+      'setPlayMode',
+      'setPlaylistShow',
+      'setPlayerShow'
     ]),
-    ...mapActions(["startSong"]),
+    ...mapActions(['startSong'])
   },
   watch: {
     currentSong(newSong, oldSong) {
       // 清空了歌曲
       if (!newSong.id) {
-        this.audio.pause();
-        this.audio.currentTime = 0;
-        return;
+        this.audio.pause()
+        this.audio.currentTime = 0
+        return
       }
       // 单曲循环
       if (oldSong && newSong.id === oldSong.id) {
-        this.setCurrentTime(0);
-        this.audio.currentTime = 0;
-        this.play();
-        return;
+        this.setCurrentTime(0)
+        this.audio.currentTime = 0
+        this.play()
+        return
       }
-      this.songReady = false;
+      this.songReady = false
       if (this.timer) {
-        clearTimeout(this.timer);
+        clearTimeout(this.timer)
       }
       this.timer = setTimeout(() => {
-        this.play();
-      }, 1000);
+        this.play()
+      }, 1000)
     },
     playing(newPlaying) {
       this.$nextTick(() => {
-        newPlaying ? this.play() : this.pause();
-      });
-    },
+        newPlaying ? this.play() : this.pause()
+      })
+    }
   },
   computed: {
     hasCurrentSong() {
-      return isDef(this.currentSong.id);
+      return isDef(this.currentSong.id)
     },
     playIcon() {
-      return this.playing ? "pause" : "play";
+      return this.playing ? 'pause' : 'play'
     },
     currentMode() {
-      return playModeMap[this.playMode];
+      return playModeMap[this.playMode]
     },
     modeIcon() {
-      return this.currentMode.icon;
+      return this.currentMode.icon
     },
     playModeText() {
-      return this.currentMode.name;
+      return this.currentMode.name
     },
     audio() {
-      return this.$refs.audio;
+      return this.$refs.audio
     },
     // 播放的进度条百分比
     playedPercent() {
-      const { durationSecond } = this.currentSong;
-      return Math.min(this.currentTime / durationSecond, 1) || 0;
+      const { durationSecond } = this.currentSong
+      return Math.min(this.currentTime / durationSecond, 1) || 0
     },
     playControlIcon() {
-      return this.isPlayerShow ? "shrink" : "open";
+      return this.isPlayerShow ? 'shrink' : 'open'
     },
     shareUrl() {
-      return `${window.location.origin}?shareMusicId=${this.currentSong.id}`;
+      return `${window.location.origin}?shareMusicId=${this.currentSong.id}`
     },
     ...mapState([
-      "currentSong",
-      "currentTime",
-      "playing",
-      "playMode",
-      "isPlaylistShow",
-      "isPlaylistPromptShow",
-      "isPlayerShow",
+      'currentSong',
+      'currentTime',
+      'playing',
+      'playMode',
+      'isPlaylistShow',
+      'isPlaylistPromptShow',
+      'isPlayerShow'
     ]),
-    ...mapGetters(["prevSong", "nextSong"]),
+    ...mapGetters(['prevSong', 'nextSong'])
   },
   components: { Share }
-};
+}
 </script>
 
 <style lang="scss" scoped>
