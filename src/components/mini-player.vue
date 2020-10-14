@@ -68,7 +68,7 @@
       </el-popover>
       <!-- 音量 -->
       <div class="volume-item">
-        <Volume :volume="volume" @volumechange="onVolumeChange" />
+        <Volume :volume="volume" @volumeChange="onVolumeChange" />
       </div>
       <!-- github -->
       <Icon @click="goGithub" :size="20" class="mode-item" type="github" />
