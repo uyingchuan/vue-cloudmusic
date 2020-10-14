@@ -80,7 +80,7 @@ export default {
                 }
                 scrollInto(this.$refs && this.$refs.page)
             } catch (error) {
-                console.log(error)
+                return error
             }
         }
     },

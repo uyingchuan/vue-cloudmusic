@@ -127,7 +127,6 @@ export default {
       }
       scroller.on('scrollStart', onScrollStart.bind(null, SCROLL_TYPE))
       scroller.on('mousewheelStart', onScrollStart.bind(null, WHEEL_TYPE))
-      console.log('123')
       scroller.on('scrollEnd', onScrollEnd.bind(null, SCROLL_TYPE))
       scroller.on('mousewheelEnd', onScrollEnd.bind(null, WHEEL_TYPE))
     },
