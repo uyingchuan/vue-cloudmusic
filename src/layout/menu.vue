@@ -32,6 +32,7 @@
 <script>
 import { menuRoutes } from '@/router'
 import User from '@/components/user'
+import { mapState, mapGetters } from '@/store/helper/user'
 
 export default {
   data() {
@@ -46,10 +47,13 @@ export default {
   },
   computed: {
     // 登录歌单与默认歌单组合
-    // 暂时未实现登录功能
     menusWithPlaylist() {
-      return this.menus
-    }
+      return this.isLogin && this.userMenus.length
+        ? this.menus.concat(this.userMenus) 
+        : this.menus
+    },
+    ...mapState(["userPlaylist"]),
+    ...mapGetters(["isLogin", "userMenus"])
   },
   components: {
     User

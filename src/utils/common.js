@@ -1,5 +1,7 @@
 // 通用工具集
 
+import { Notification } from 'element-ui'
+
 // 获取给定尺寸的img
 export function getImgUrl(url, width, height) {
     if (!height) {
@@ -102,6 +104,11 @@ export function notify(message, type) {
     const fn = type ? Notification[type] : Notification
     return fn(params)
 }
+['success', 'warning', 'info', 'error'].forEach(key => {
+    notify[key] = (message) => {
+        return notify(message, key)
+    }
+})
 
 // 判断传入参数是否定义
 export function isDef(v) {
