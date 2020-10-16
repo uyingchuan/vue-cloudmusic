@@ -31,3 +31,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.high-light-text {
+  color: $blue;
+}
+</style>
