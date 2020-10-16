@@ -2,6 +2,8 @@
 
 import { Notification } from 'element-ui'
 
+export { debounce, throttle } from 'lodash-es'
+
 // 获取给定尺寸的img
 export function getImgUrl(url, width, height) {
     if (!height) {
