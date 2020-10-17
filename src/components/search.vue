@@ -120,8 +120,8 @@ export default {
       })
     }, 500),
     goSearch(keyword) {
-      this.searchHistorys.push({ first: keyword })
-      storage.set(SEARCH_HISTORY_KEY, this.srearchHistory)
+      this.searchHistorys.unshift({ first: keyword })
+      storage.set(SEARCH_HISTORY_KEY, this.searchHistorys)
       this.searchPanelShow = false
     },
     async onClickSong(item) {
