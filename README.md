@@ -1,13 +1,12 @@
-# 基于Vue2、Vue-CLI4的音乐播放器
+# vue-cloudmusic
 
-这是一个高仿mac端网易云的音乐播放器，目前只开发了一部分功能，我会努力开发完这个项目的。
-
-
-### [源码地址](https://github.com/uyc/vue-cloudmusic)
+使用Vue-CLI4构建的Vue2项目，仿网易云客户端实现歌曲播放、歌单搜索、mv播放等功能。
 
 
-### 进度
+### 项目主要功能
 
+- [x] 搜索功能
+- [x] 用户登录
 - [x] 播放列表 & 播放记录
 - [x] 歌词及评论
 - [x] mv详情及播放
@@ -20,17 +19,20 @@
 
 ### 相关技术栈
 - Vue全家桶
-- Element-ui魔改样式
-- CSS Variables实现主题换肤
+- axios
+- Element-ui
 - Sass
-- postcss-pxtorem 自动计算rem，实现移动端适配
-- better-scroll 实现滚动歌词
+- better-scroll
+- postcss-pxtorem
+
 
 
 ### 后端接口
+接口使用github上大佬的开源项目（项目地址：https://binaryify.github.io/NeteaseCloudMusicApi）
 
-https://binaryify.github.io/NeteaseCloudMusicApi
 
+### 本项目源码地址
+https://github.com/uyc/vue-cloudmusic
 
 ### 项目目录结构
 
@@ -63,6 +65,8 @@ https://binaryify.github.io/NeteaseCloudMusicApi
 ![播放歌曲](./images/player.png)
 ![播放MV](./images/mv.png)
 ![播放记录](./images/show-playlist.png)
+![用户登录](./images/user.png)
+![搜索功能](./images/search.png)
 
 ### 安装与使用
 ```bash
@@ -71,4 +75,3 @@ npm run serve
 ```
 
 ### 致谢
-在这里感谢这个 [开源项目](https://github.com/sl1673495/vue-netease-music) 。从这个开源项目中有很多知识点让我受益匪浅，感谢这位老哥的开源。
