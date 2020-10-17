@@ -122,6 +122,7 @@ export default {
     goSearch(keyword) {
       this.searchHistorys.unshift({ first: keyword })
       storage.set(SEARCH_HISTORY_KEY, this.searchHistorys)
+      this.$router.push(`/search/${keyword}`)
       this.searchPanelShow = false
     },
     async onClickSong(item) {

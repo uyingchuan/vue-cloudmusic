@@ -7,7 +7,12 @@ const Playlists = () => import(/* webpackChunkName: "Playlists" */ '@/page/playl
 const PlaylistDetail = () => import(/* webpackChunkName: "PlaylistDetail" */ '@/page/playlist-detail')
 const Songs = () => import(/* webpackChunkName: "Songs" */ '@/page/songs')
 const Mvs = () => import(/* webpackChunkName: "Mvs" */ '@/page/mvs')
-const Mv = () => import(/*webpackChunkName: "Mv" */ '@/page/mv')
+const Mv = () => import(/* webpackChunkName: "Mv" */ '@/page/mv')
+
+const Search = () => import(/* webpackChunkName: "Search" */ '@/page/search')
+const SearchSongs = () => import(/* webpackChunkName: "SearchSongs" */ '@/page/search/songs')
+const SearchPlaylists = () => import(/* webpackChunkName: "SearchPlaylists" */ '@/page/search/playlists')
+const SearchMvs = () => import(/* webpackChunkName: "SearchMvs" */ '@/page/search/mvs')
 
 
 // 应用内容区展示的页面
@@ -76,6 +81,32 @@ const routes = [
     name: 'mv',
     component: Mv,
     props: (route) => ({id: + route.params.id})
+  },
+  {
+    path: '/search/:keywords',
+    props: true,
+    component: Search,
+    children: [
+      {
+        path: '/',
+        redirect: 'songs',
+      },
+      {
+        path: 'songs',
+        name: 'searchSongs',
+        component: SearchSongs,
+      },
+      {
+        path: 'playlists',
+        name: 'searchPlaylists',
+        component: SearchPlaylists,
+      },
+      {
+        path: 'mvs',
+        name: 'searchMvs',
+        component: SearchMvs
+      }
+    ]
   },
   ...menuRoutes
 ]

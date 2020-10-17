@@ -20,7 +20,7 @@ export default {
       type: String,
       default: ''
     },
-    //
+    // 名字下面渲染的desc
     renderNameDesc: {
       type: Function
     }
