@@ -94,7 +94,7 @@ export default {
 
       this.comments = comments
       this.total = total
-      // this.$emit("update", { comments, hotComments, total })
+      this.$emit("update", { comments, hotComments, total })
     },
     async onPageChange() {
       await this.getComment()

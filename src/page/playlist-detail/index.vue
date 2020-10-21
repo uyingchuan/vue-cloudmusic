@@ -34,8 +34,7 @@
     />
     <!-- 评论列表 -->
     <div class="comments" v-show="activeTab === COMMENT_IDX">
-      <!-- <Comments :id="id" @update="onCommentsUpdate" type="playlist" /> -->
-      <Comments :id="id" type="playlist" />
+      <Comments :id="id" @update="onCommentsUpdate" type="playlist" />
     </div>
   </div>
 </template>
@@ -92,9 +91,9 @@ export default {
       )
       this.songs = songs
     },
-    // onCommentsUpdate({ total }) {
-    //   this.tabs.splice(COMMENT_IDX, 1, `评论(${total})`)
-    // },
+    onCommentsUpdate({ total }) {
+      this.tabs.splice(COMMENT_IDX, 1, `评论(${total})`)
+    },
     onInputFocus() {
       this.inputFocus = true
     },
