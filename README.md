@@ -4,7 +4,7 @@
 
 ### 预览
 
-[预览地址](http://uyc.free.idcfengye.com)  (有时可能会访问不了，过段时间可以再试一下。)
+[预览地址](http://uyc.free.idcfengye.com)  (有时可能会访问不了，过段时间可以再试一下。或者访问大佬的[预览地址](https://ssh-music.vercel.app/))
 
 ### 安装与使用
 ```bash
