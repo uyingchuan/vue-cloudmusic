@@ -1,9 +1,8 @@
 // 横幅轮播图组件
 <template>
-  <el-carousel class="banner-carousel" :interval="4000" type="card">
+  <el-carousel class="banner-carousel" :interval="4000" type="card" v-if="banners.length">
     <el-carousel-item :key="banner.scm" v-for="banner in banners">
       <img :src="$utils.getImgUrl(banner.imageUrl, 1000, 400)" class="banner-img" />
-      <h1 v-text="$utils.getImgUrl(banner.imageUrl, 1000, 400)"></h1>
     </el-carousel-item>
   </el-carousel>
 </template>

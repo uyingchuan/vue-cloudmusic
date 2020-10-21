@@ -1,6 +1,6 @@
 // 推荐歌单组件
 <template>
-  <div class="recommend">
+  <div class="recommend" v-if="list.length">
     <Title>推荐歌单</Title>
     <div class="list-wrap">
       <PlaylistCard
