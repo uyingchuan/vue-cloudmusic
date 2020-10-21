@@ -3,6 +3,12 @@
 使用Vue-CLI4构建的Vue2项目，仿网易云客户端实现歌曲播放、歌单搜索、mv播放等功能。
 
 
+### 安装与使用
+```bash
+npm install
+npm run serve
+```
+
 ### 项目主要功能
 
 - [x] 搜索功能
@@ -68,10 +74,7 @@ https://github.com/uyc/vue-cloudmusic
 ![用户登录](./images/user.png)
 ![搜索功能](./images/search.png)
 
-### 安装与使用
-```bash
-npm install
-npm run serve
-```
 
 ### 致谢
+[vue-netease-music](https://github.com/sl1673495/vue-netease-music)
+[NeteaseCloudMusicApi](https://binaryify.github.io/NeteaseCloudMusicApi)
