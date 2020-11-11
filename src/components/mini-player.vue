@@ -87,6 +87,7 @@
       @canplay="ready"
       @ended="end"
       @timeupdate="updateTime"
+      @error="error"
       ref="audio"
     ></audio>
   </div>
@@ -154,6 +155,10 @@ export default {
       }
     },
     end() {
+      this.next()
+    },
+    error() {
+      this.songReady = true
       this.next()
     },
     onProgressChange(percent) {
