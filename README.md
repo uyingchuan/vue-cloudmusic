@@ -41,7 +41,7 @@ npm run serve
 
 
 ### 本项目源码地址
-https://github.com/uyc/vue-cloudmusic
+https://github.com/uyingchuan/vue-cloudmusic
 
 ### 项目目录结构
 
