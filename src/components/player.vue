@@ -393,6 +393,12 @@ $img-outer-d: 300px;
                 margin-bottom: 8px;
             }
           }
+          .lyric-item:first-child {
+            padding-top: 40px;
+          }
+          .lyric-item:last-child {
+            padding-bottom: 40px;
+          }
         }
       }
     }
