@@ -4,7 +4,7 @@
 
 ### 预览
 
-[预览地址](http://music.levons.cn) 
+[预览地址](http://music.levons.cn) (no money, 挂了)
 
 ### 安装与使用
 ```bash
