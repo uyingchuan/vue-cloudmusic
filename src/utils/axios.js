@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Loading } from 'element-ui'
 import store from '@/store'
 
-const BASE_URL = 'http://mapi.levons.cn'
+const BASE_URL = 'https://mapi.levons.cn'
 
 // 不带全局loading的请求实例
 export const requestWithoutLoading = createBaseInstance() 
