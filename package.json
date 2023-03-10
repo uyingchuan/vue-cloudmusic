@@ -2,6 +2,9 @@
   "name": "vue-cloudmusic",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "14.16.1"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -33,7 +36,7 @@
     "@vue/cli-service": "~4.4.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-component": "^1.1.1",
-    "eslint": "^7.7.0",
+    "eslint": "^6.0.0",
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.14.1",
     "postcss-pxtorem": "^5.1.1",
